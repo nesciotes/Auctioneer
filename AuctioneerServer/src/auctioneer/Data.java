@@ -5,6 +5,7 @@
  */
 package auctioneer;
 
+import controllers.Bid;
 import controllers.Controller;
 import controllers.Item;
 import controllers.SaltyPassword;
@@ -144,6 +145,26 @@ public class Data implements IData {
     }
 
     @Override
+    public List<Item> getPastAuctions() {
+        EntityManager em_temp = this.em.createEntityManager();
+
+        Object items = null;
+
+        try {
+            items = em_temp.createQuery(
+                    "SELECT i FROM Item i WHERE active = false")
+                    .getResultList();
+            em_temp.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        if (items == null) {
+            return null;
+        }
+        return (List<Item>) items;
+    }
+
+    @Override
     public void addItem(String name, String description, String imagepath, String startingprice, String mininumprice) {
         Item item = new Item();
         item.setName(name);
@@ -160,7 +181,7 @@ public class Data implements IData {
     }
 
     public static void updateItem(Item item) {
-      EntityManager em_temp = em.createEntityManager();
+        EntityManager em_temp = em.createEntityManager();
 
         em_temp.getTransaction().begin();
         em_temp.merge(item);
@@ -177,6 +198,13 @@ public class Data implements IData {
     @Override
     public void addMessage(String message) {
         Controller.getController().getChat().add(message);
+    }
+
+    @Override
+    public Bid getHighestBidForAuction(int placeInList) {
+        List<Item> pastAuctions = getPastAuctions();
+        
+        return pastAuctions.get(placeInList).getHighestBid();
     }
 
     @Override

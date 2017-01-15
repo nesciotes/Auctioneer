@@ -8,23 +8,22 @@ package controllers;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
 /**
  *
  * @author NesciO
  */
 @Entity
-public class Bid implements Serializable{
-    
+public class Bid implements Serializable {
+
     private double amount;
     private boolean highest;
-    
+
     @ManyToOne
     private Item item;
-    
+
     @ManyToOne(cascade = CascadeType.ALL)
     private User user;
-    
+
     @Id
     @GeneratedValue
     private int id;
@@ -39,7 +38,7 @@ public class Bid implements Serializable{
     public Bid() {
         this.highest = true;
     }
-    
+
     public double getAmount() {
         return amount;
     }
@@ -52,14 +51,24 @@ public class Bid implements Serializable{
         return item;
     }
 
+    public User returnUser() {
+        return user;
+    }
+
     public User getUser() {
         return user;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public void setHighest(boolean highest) {
         this.highest = highest;
     }
-    
-    
-    
+
 }

@@ -5,6 +5,7 @@
  */
 package auctioneer;
 
+import controllers.Bid;
 import controllers.Item;
 import controllers.User;
 import java.util.List;
@@ -26,10 +27,14 @@ public interface IData {
 
     List<Item> getAllAuctions();
     
+    List<Item> getPastAuctions();
+    
     List<String> getChat();
     
     void addMessage(String message);
     
     boolean placeBid(User user, String amount);
+    
+    Bid getHighestBidForAuction(int placeInList);
 
 }

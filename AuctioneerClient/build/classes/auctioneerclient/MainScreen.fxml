@@ -41,7 +41,7 @@
       </Label>
       <ListView fx:id="lvChat" layoutX="289.0" layoutY="398.0" prefHeight="130.0" prefWidth="500.0" style="-fx-background-color: #555; -fx-border-radius: 5; -fx-border-color: #111;" />
       <Separator layoutX="318.0" layoutY="356.0" prefHeight="23.0" prefWidth="442.0" />
-      <ImageView fx:id="ivCurrent" fitHeight="138.0" fitWidth="149.0" layoutX="297.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivCurrent" fitHeight="138.0" fitWidth="149.0" layoutX="297.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/3PG.jpg" />
          </image></ImageView>
@@ -72,51 +72,51 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <ImageView fx:id="ivCurrent1" fitHeight="70.0" fitWidth="86.0" layoutX="29.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivFinished1" fitHeight="70.0" fitWidth="86.0" layoutX="29.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/3PG.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="108.0" layoutY="192.0" maxWidth="260.0" text="Won by:" textFill="#5bb975" />
-      <Label fx:id="lblCurrentName1" layoutX="108.0" layoutY="165.0" prefHeight="23.0" prefWidth="122.0" text="Loading..." textFill="#317544">
+      <Label fx:id="lblFinishedlbl1" layoutX="108.0" layoutY="192.0" maxWidth="260.0" text="Won by:" textFill="#5bb975" visible="false" />
+      <Label fx:id="lblCurrentName1" layoutX="108.0" layoutY="165.0" prefHeight="23.0" prefWidth="122.0" text="Loading..." textFill="#317544" visible="false">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="lblFinished1" layoutX="108.0" layoutY="210.0" maxWidth="260.0" text="..." textFill="#5bb975" />
-      <Label fx:id="lblFinishedPrice1" layoutX="165.0" layoutY="210.0" maxWidth="260.0" text="..." textFill="#5bb975" />
-      <ImageView fx:id="ivCurrent11" fitHeight="70.0" fitWidth="86.0" layoutX="30.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="lblFinished1" layoutX="108.0" layoutY="210.0" maxWidth="260.0" text="..." textFill="#5bb975" visible="false" />
+      <Label fx:id="lblFinishedPrice1" layoutX="165.0" layoutY="210.0" maxWidth="260.0" text="..." textFill="#5bb975" visible="false" />
+      <ImageView fx:id="ivFinished2" fitHeight="70.0" fitWidth="86.0" layoutX="30.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/3PG.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="109.0" layoutY="295.0" maxWidth="260.0" text="Won by:" textFill="#5bb975" />
-      <Label fx:id="lblCurrentName11" layoutX="109.0" layoutY="268.0" prefHeight="23.0" prefWidth="122.0" text="Loading..." textFill="#317544">
+      <Label fx:id="lblFinishedlbl2" layoutX="109.0" layoutY="295.0" maxWidth="260.0" text="Won by:" textFill="#5bb975" visible="false" />
+      <Label fx:id="lblCurrentName11" layoutX="109.0" layoutY="268.0" prefHeight="23.0" prefWidth="122.0" text="Loading..." textFill="#317544" visible="false">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="lblFinished2" layoutX="109.0" layoutY="313.0" maxWidth="260.0" text="..." textFill="#5bb975" />
-      <Label fx:id="lblFinishedPrice2" layoutX="166.0" layoutY="313.0" maxWidth="260.0" text="..." textFill="#5bb975" />
-      <ImageView fx:id="ivCurrent12" fitHeight="70.0" fitWidth="86.0" layoutX="31.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="lblFinished2" layoutX="109.0" layoutY="313.0" maxWidth="260.0" text="..." textFill="#5bb975" visible="false" />
+      <Label fx:id="lblFinishedPrice2" layoutX="166.0" layoutY="313.0" maxWidth="260.0" text="..." textFill="#5bb975" visible="false" />
+      <ImageView fx:id="ivFinished3" fitHeight="70.0" fitWidth="86.0" layoutX="31.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/3PG.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="110.0" layoutY="395.0" maxWidth="260.0" text="Won by:" textFill="#5bb975" />
-      <Label fx:id="lblCurrentName12" layoutX="110.0" layoutY="368.0" prefHeight="23.0" prefWidth="122.0" text="Loading..." textFill="#317544">
+      <Label fx:id="lblFinishedlbl3" layoutX="110.0" layoutY="395.0" maxWidth="260.0" text="Won by:" textFill="#5bb975" visible="false" />
+      <Label fx:id="lblCurrentName12" layoutX="110.0" layoutY="368.0" prefHeight="23.0" prefWidth="122.0" text="Loading..." textFill="#317544" visible="false">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="lblFinished3" layoutX="110.0" layoutY="413.0" maxWidth="260.0" text="..." textFill="#5bb975" />
-      <Label fx:id="lblFinishedPrice3" layoutX="167.0" layoutY="413.0" maxWidth="260.0" text="..." textFill="#5bb975" />
+      <Label fx:id="lblFinished3" layoutX="110.0" layoutY="413.0" maxWidth="260.0" text="..." textFill="#5bb975" visible="false" />
+      <Label fx:id="lblFinishedPrice3" layoutX="167.0" layoutY="413.0" maxWidth="260.0" text="..." textFill="#5bb975" visible="false" />
       <Button fx:id="btnWon" layoutX="904.0" layoutY="207.0" minHeight="23.0" mnemonicParsing="false" onAction="#chat" prefHeight="23.0" prefWidth="149.0" style="-fx-background-color: #777; -fx-border-radius: ;" text="My won auctions" textFill="#70cd82">
          <font>
             <Font size="11.0" />
          </font>
       </Button>
-      <Button fx:id="btnLogout" layoutX="904.0" layoutY="168.0" minHeight="23.0" mnemonicParsing="false" onAction="#chat" prefHeight="23.0" prefWidth="149.0" style="-fx-background-color: #777; -fx-border-radius: ;" text="Log out" textFill="#70cd82">
+      <Button fx:id="btnLogout" onAction="#logOut" layoutX="904.0" layoutY="168.0" minHeight="23.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="149.0" style="-fx-background-color: #777; -fx-border-radius: ;" text="Log out" textFill="#70cd82">
          <font>
             <Font size="11.0" />
          </font>

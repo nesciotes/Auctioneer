@@ -10,17 +10,11 @@
 <message name="addItemResponse">
 <part name="parameters" element="tns:addItemResponse"></part>
 </message>
-<message name="getChat">
-<part name="parameters" element="tns:getChat"></part>
+<message name="login">
+<part name="parameters" element="tns:login"></part>
 </message>
-<message name="getChatResponse">
-<part name="parameters" element="tns:getChatResponse"></part>
-</message>
-<message name="getCurrent">
-<part name="parameters" element="tns:getCurrent"></part>
-</message>
-<message name="getCurrentResponse">
-<part name="parameters" element="tns:getCurrentResponse"></part>
+<message name="loginResponse">
+<part name="parameters" element="tns:loginResponse"></part>
 </message>
 <message name="addUser">
 <part name="parameters" element="tns:addUser"></part>
@@ -28,17 +22,11 @@
 <message name="addUserResponse">
 <part name="parameters" element="tns:addUserResponse"></part>
 </message>
-<message name="getAllAuctions">
-<part name="parameters" element="tns:getAllAuctions"></part>
+<message name="getChat">
+<part name="parameters" element="tns:getChat"></part>
 </message>
-<message name="getAllAuctionsResponse">
-<part name="parameters" element="tns:getAllAuctionsResponse"></part>
-</message>
-<message name="addMessage">
-<part name="parameters" element="tns:addMessage"></part>
-</message>
-<message name="addMessageResponse">
-<part name="parameters" element="tns:addMessageResponse"></part>
+<message name="getChatResponse">
+<part name="parameters" element="tns:getChatResponse"></part>
 </message>
 <message name="placeBid">
 <part name="parameters" element="tns:placeBid"></part>
@@ -46,44 +34,76 @@
 <message name="placeBidResponse">
 <part name="parameters" element="tns:placeBidResponse"></part>
 </message>
-<message name="login">
-<part name="parameters" element="tns:login"></part>
+<message name="getCurrent">
+<part name="parameters" element="tns:getCurrent"></part>
 </message>
-<message name="loginResponse">
-<part name="parameters" element="tns:loginResponse"></part>
+<message name="getCurrentResponse">
+<part name="parameters" element="tns:getCurrentResponse"></part>
+</message>
+<message name="addMessage">
+<part name="parameters" element="tns:addMessage"></part>
+</message>
+<message name="addMessageResponse">
+<part name="parameters" element="tns:addMessageResponse"></part>
+</message>
+<message name="getAllAuctions">
+<part name="parameters" element="tns:getAllAuctions"></part>
+</message>
+<message name="getAllAuctionsResponse">
+<part name="parameters" element="tns:getAllAuctionsResponse"></part>
+</message>
+<message name="getPastAuctions">
+<part name="parameters" element="tns:getPastAuctions"></part>
+</message>
+<message name="getPastAuctionsResponse">
+<part name="parameters" element="tns:getPastAuctionsResponse"></part>
+</message>
+<message name="getHighestBidForAuction">
+<part name="parameters" element="tns:getHighestBidForAuction"></part>
+</message>
+<message name="getHighestBidForAuctionResponse">
+<part name="parameters" element="tns:getHighestBidForAuctionResponse"></part>
 </message>
 <portType name="Data">
 <operation name="addItem">
 <input wsam:Action="http://auctioneer/Data/addItemRequest" message="tns:addItem"></input>
 <output wsam:Action="http://auctioneer/Data/addItemResponse" message="tns:addItemResponse"></output>
 </operation>
-<operation name="getChat">
-<input wsam:Action="http://auctioneer/Data/getChatRequest" message="tns:getChat"></input>
-<output wsam:Action="http://auctioneer/Data/getChatResponse" message="tns:getChatResponse"></output>
-</operation>
-<operation name="getCurrent">
-<input wsam:Action="http://auctioneer/Data/getCurrentRequest" message="tns:getCurrent"></input>
-<output wsam:Action="http://auctioneer/Data/getCurrentResponse" message="tns:getCurrentResponse"></output>
+<operation name="login">
+<input wsam:Action="http://auctioneer/Data/loginRequest" message="tns:login"></input>
+<output wsam:Action="http://auctioneer/Data/loginResponse" message="tns:loginResponse"></output>
 </operation>
 <operation name="addUser">
 <input wsam:Action="http://auctioneer/Data/addUserRequest" message="tns:addUser"></input>
 <output wsam:Action="http://auctioneer/Data/addUserResponse" message="tns:addUserResponse"></output>
 </operation>
-<operation name="getAllAuctions">
-<input wsam:Action="http://auctioneer/Data/getAllAuctionsRequest" message="tns:getAllAuctions"></input>
-<output wsam:Action="http://auctioneer/Data/getAllAuctionsResponse" message="tns:getAllAuctionsResponse"></output>
-</operation>
-<operation name="addMessage">
-<input wsam:Action="http://auctioneer/Data/addMessageRequest" message="tns:addMessage"></input>
-<output wsam:Action="http://auctioneer/Data/addMessageResponse" message="tns:addMessageResponse"></output>
+<operation name="getChat">
+<input wsam:Action="http://auctioneer/Data/getChatRequest" message="tns:getChat"></input>
+<output wsam:Action="http://auctioneer/Data/getChatResponse" message="tns:getChatResponse"></output>
 </operation>
 <operation name="placeBid">
 <input wsam:Action="http://auctioneer/Data/placeBidRequest" message="tns:placeBid"></input>
 <output wsam:Action="http://auctioneer/Data/placeBidResponse" message="tns:placeBidResponse"></output>
 </operation>
-<operation name="login">
-<input wsam:Action="http://auctioneer/Data/loginRequest" message="tns:login"></input>
-<output wsam:Action="http://auctioneer/Data/loginResponse" message="tns:loginResponse"></output>
+<operation name="getCurrent">
+<input wsam:Action="http://auctioneer/Data/getCurrentRequest" message="tns:getCurrent"></input>
+<output wsam:Action="http://auctioneer/Data/getCurrentResponse" message="tns:getCurrentResponse"></output>
+</operation>
+<operation name="addMessage">
+<input wsam:Action="http://auctioneer/Data/addMessageRequest" message="tns:addMessage"></input>
+<output wsam:Action="http://auctioneer/Data/addMessageResponse" message="tns:addMessageResponse"></output>
+</operation>
+<operation name="getAllAuctions">
+<input wsam:Action="http://auctioneer/Data/getAllAuctionsRequest" message="tns:getAllAuctions"></input>
+<output wsam:Action="http://auctioneer/Data/getAllAuctionsResponse" message="tns:getAllAuctionsResponse"></output>
+</operation>
+<operation name="getPastAuctions">
+<input wsam:Action="http://auctioneer/Data/getPastAuctionsRequest" message="tns:getPastAuctions"></input>
+<output wsam:Action="http://auctioneer/Data/getPastAuctionsResponse" message="tns:getPastAuctionsResponse"></output>
+</operation>
+<operation name="getHighestBidForAuction">
+<input wsam:Action="http://auctioneer/Data/getHighestBidForAuctionRequest" message="tns:getHighestBidForAuction"></input>
+<output wsam:Action="http://auctioneer/Data/getHighestBidForAuctionResponse" message="tns:getHighestBidForAuctionResponse"></output>
 </operation>
 </portType>
 <binding name="DataPortBinding" type="tns:Data">
@@ -97,16 +117,7 @@
 <soap:body use="literal"></soap:body>
 </output>
 </operation>
-<operation name="getChat">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal"></soap:body>
-</input>
-<output>
-<soap:body use="literal"></soap:body>
-</output>
-</operation>
-<operation name="getCurrent">
+<operation name="login">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -124,16 +135,7 @@
 <soap:body use="literal"></soap:body>
 </output>
 </operation>
-<operation name="getAllAuctions">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal"></soap:body>
-</input>
-<output>
-<soap:body use="literal"></soap:body>
-</output>
-</operation>
-<operation name="addMessage">
+<operation name="getChat">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -151,7 +153,43 @@
 <soap:body use="literal"></soap:body>
 </output>
 </operation>
-<operation name="login">
+<operation name="getCurrent">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+</operation>
+<operation name="addMessage">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+</operation>
+<operation name="getAllAuctions">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+</operation>
+<operation name="getPastAuctions">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+</operation>
+<operation name="getHighestBidForAuction">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>

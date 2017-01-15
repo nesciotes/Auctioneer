@@ -46,5 +46,10 @@ public class Bid {
     public void setHighest(boolean highest) {
         this.highest = highest;
     }
+    
+    
+    public User returnUser() {
+        return user;
+    }
 
 }

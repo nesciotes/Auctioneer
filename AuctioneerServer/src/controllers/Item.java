@@ -27,7 +27,7 @@ public class Item implements Serializable{
 
     private boolean active;
 
-    @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.MERGE, mappedBy="item")
+    @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.MERGE)
     @Lob
     private List<Bid> bids;
 
@@ -55,6 +55,7 @@ public class Item implements Serializable{
         this.currentBid = this.startingPrice;
 
     }
+   
 
     public Item() {
         this.bids = new ArrayList<>();
@@ -101,8 +102,8 @@ public class Item implements Serializable{
         this.remainingTime = remainingTime;
     }
 
-    public List getBids() {
-        return bids;
+    public List<Bid> getBids() {
+        return this.bids;
     }
 
     public void setBids(LinkedList bids) {

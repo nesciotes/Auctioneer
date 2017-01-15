@@ -24,6 +24,14 @@
 
 <xs:element name="getCurrentResponse" type="tns:getCurrentResponse"></xs:element>
 
+<xs:element name="getHighestBidForAuction" type="tns:getHighestBidForAuction"></xs:element>
+
+<xs:element name="getHighestBidForAuctionResponse" type="tns:getHighestBidForAuctionResponse"></xs:element>
+
+<xs:element name="getPastAuctions" type="tns:getPastAuctions"></xs:element>
+
+<xs:element name="getPastAuctionsResponse" type="tns:getPastAuctionsResponse"></xs:element>
+
 <xs:element name="login" type="tns:login"></xs:element>
 
 <xs:element name="loginResponse" type="tns:loginResponse"></xs:element>
@@ -89,6 +97,26 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="getHighestBidForAuction">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getHighestBidForAuctionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:bid" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="bid">
+<xs:sequence>
+<xs:element name="amount" type="xs:double"></xs:element>
+<xs:element name="highest" type="xs:boolean"></xs:element>
+<xs:element name="user" type="tns:user" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="addMessage">
 <xs:sequence>
 <xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
@@ -97,16 +125,6 @@
 
 <xs:complexType name="addMessageResponse">
 <xs:sequence></xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="getAllAuctions">
-<xs:sequence></xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="getAllAuctionsResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:item" minOccurs="0" maxOccurs="unbounded"></xs:element>
-</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="placeBid">
@@ -122,6 +140,16 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="getAllAuctions">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllAuctionsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:item" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="getCurrent">
 <xs:sequence></xs:sequence>
 </xs:complexType>
@@ -129,6 +157,16 @@
 <xs:complexType name="getCurrentResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:item" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPastAuctions">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPastAuctionsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:item" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
 </xs:complexType>
 

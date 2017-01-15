@@ -5,6 +5,7 @@
  */
 package auctioneerclient;
 
+import auctioneer.Bid;
 import auctioneer.DataService;
 import auctioneer.User;
 import controllers.Item;
@@ -28,7 +29,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -37,6 +41,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import javax.jws.WebService;
 import static org.apache.commons.beanutils.BeanUtils.copyProperties;
@@ -145,6 +150,7 @@ public class MainScreenController implements Initializable {
 
             getCurrentAuction(port);
             getChat(port);
+            getPastAuctions(port);
 
         } catch (Exception e) {
             System.out.println(e);
@@ -228,7 +234,6 @@ public class MainScreenController implements Initializable {
         DataService service = new DataService();
         auctioneer.Data port = (auctioneer.Data) service.getDataPort();
 
-
         boolean bidSuccess = port.placeBid(Login.user, tbBid.getText());
 
         if (!bidSuccess) {
@@ -248,5 +253,70 @@ public class MainScreenController implements Initializable {
         port.addMessage(Login.user.getUsername() + ": " + tbChat.getText());
     }
 
+    protected void setPastAuction(boolean visible, Label currentname, Label finished, Label finished2, Label price, ImageView image, auctioneer.Data port, int index, List<auctioneer.Item> pastAuctions) {
+        currentname.setVisible(visible);
+        finished.setVisible(visible);
+        finished2.setVisible(visible);
+        price.setVisible(visible);
+        image.setVisible(visible);
+
+        if (index != -1) {
+            Bid winningBid = port.getHighestBidForAuction(index);
+
+            auctioneer.Item current = pastAuctions.get(index);
+            currentname.setText(current.getName());
+            if (winningBid != null) {
+                finished2.setText(winningBid.getUser().getUsername());
+                price.setText("€" + winningBid.getAmount());
+            } else {
+                finished2.setText("Nobody");
+                price.setText("");
+            }
+        }
+    }
+    
+    @FXML
+    private void logOut(ActionEvent event) throws IOException {
+        Login.user = null;
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Login2.fxml"));
+                MainScreenController lc = loader.getController();
+                Parent root = loader.load();
+
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) btnLogout.getScene().getWindow();
+
+                stage.setScene(scene);
+
+                stage.show();
+    }
+
+    protected void getPastAuctions(auctioneer.Data port) {
+        List<auctioneer.Item> pastAuctions = port.getPastAuctions();
+
+        int amount = pastAuctions.size();
+
+        if (amount >= 3) {
+            setPastAuction(true, lblCurrentName1, lblFinishedlbl1, lblFinished1, lblFinishedPrice1, ivFinished1, port, amount - 1, pastAuctions);
+            setPastAuction(true, lblCurrentName11, lblFinishedlbl2, lblFinished2, lblFinishedPrice2, ivFinished2, port, amount - 2, pastAuctions);
+            setPastAuction(true, lblCurrentName12, lblFinishedlbl3, lblFinished3, lblFinishedPrice3, ivFinished3, port, amount - 3, pastAuctions);
+
+        } else if (amount == 2) {
+            setPastAuction(true, lblCurrentName1, lblFinishedlbl1, lblFinished1, lblFinishedPrice1, ivFinished1, port, amount - 1, pastAuctions);
+            setPastAuction(true, lblCurrentName11, lblFinishedlbl2, lblFinished2, lblFinishedPrice2, ivFinished2, port, amount - 2, pastAuctions);
+            setPastAuction(false, lblCurrentName12, lblFinishedlbl3, lblFinished3, lblFinishedPrice3, ivFinished3, port, - 1, pastAuctions);
+
+        } else if (amount == 1) {
+            setPastAuction(true, lblCurrentName1, lblFinishedlbl1, lblFinished1, lblFinishedPrice1, ivFinished1, port, amount - 1, pastAuctions);
+            setPastAuction(false, lblCurrentName11, lblFinishedlbl2, lblFinished2, lblFinishedPrice2, ivFinished2, port, - 1, pastAuctions);
+            setPastAuction(false, lblCurrentName12, lblFinishedlbl3, lblFinished3, lblFinishedPrice3, ivFinished3, port, - 1, pastAuctions);
+
+        } else {
+            setPastAuction(false, lblCurrentName1, lblFinishedlbl1, lblFinished1, lblFinishedPrice1, ivFinished1, port,  - 1, pastAuctions);
+            setPastAuction(false, lblCurrentName11, lblFinishedlbl2, lblFinished2, lblFinishedPrice2, ivFinished2, port, - 1, pastAuctions);
+            setPastAuction(false, lblCurrentName12, lblFinishedlbl3, lblFinished3, lblFinishedPrice3, ivFinished3, port, - 1, pastAuctions);
+        }
+
+    }
 
 }

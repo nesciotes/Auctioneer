@@ -26,10 +26,13 @@ public class ObjectFactory {
 
     private final static QName _LoginResponse_QNAME = new QName("http://auctioneer/", "loginResponse");
     private final static QName _AddUser_QNAME = new QName("http://auctioneer/", "addUser");
+    private final static QName _GetHighestBidForAuctionResponse_QNAME = new QName("http://auctioneer/", "getHighestBidForAuctionResponse");
+    private final static QName _GetPastAuctions_QNAME = new QName("http://auctioneer/", "getPastAuctions");
     private final static QName _AddMessage_QNAME = new QName("http://auctioneer/", "addMessage");
     private final static QName _GetCurrentResponse_QNAME = new QName("http://auctioneer/", "getCurrentResponse");
     private final static QName _Login_QNAME = new QName("http://auctioneer/", "login");
     private final static QName _AddMessageResponse_QNAME = new QName("http://auctioneer/", "addMessageResponse");
+    private final static QName _GetHighestBidForAuction_QNAME = new QName("http://auctioneer/", "getHighestBidForAuction");
     private final static QName _GetChat_QNAME = new QName("http://auctioneer/", "getChat");
     private final static QName _AddItem_QNAME = new QName("http://auctioneer/", "addItem");
     private final static QName _GetAllAuctionsResponse_QNAME = new QName("http://auctioneer/", "getAllAuctionsResponse");
@@ -37,6 +40,7 @@ public class ObjectFactory {
     private final static QName _GetChatResponse_QNAME = new QName("http://auctioneer/", "getChatResponse");
     private final static QName _PlaceBid_QNAME = new QName("http://auctioneer/", "placeBid");
     private final static QName _GetCurrent_QNAME = new QName("http://auctioneer/", "getCurrent");
+    private final static QName _GetPastAuctionsResponse_QNAME = new QName("http://auctioneer/", "getPastAuctionsResponse");
     private final static QName _PlaceBidResponse_QNAME = new QName("http://auctioneer/", "placeBidResponse");
     private final static QName _AddItemResponse_QNAME = new QName("http://auctioneer/", "addItemResponse");
     private final static QName _AddUserResponse_QNAME = new QName("http://auctioneer/", "addUserResponse");
@@ -73,11 +77,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetPastAuctions }
+     * 
+     */
+    public GetPastAuctions createGetPastAuctions() {
+        return new GetPastAuctions();
+    }
+
+    /**
      * Create an instance of {@link AddUser }
      * 
      */
     public AddUser createAddUser() {
         return new AddUser();
+    }
+
+    /**
+     * Create an instance of {@link GetHighestBidForAuctionResponse }
+     * 
+     */
+    public GetHighestBidForAuctionResponse createGetHighestBidForAuctionResponse() {
+        return new GetHighestBidForAuctionResponse();
     }
 
     /**
@@ -94,6 +114,14 @@ public class ObjectFactory {
      */
     public AddMessageResponse createAddMessageResponse() {
         return new AddMessageResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetHighestBidForAuction }
+     * 
+     */
+    public GetHighestBidForAuction createGetHighestBidForAuction() {
+        return new GetHighestBidForAuction();
     }
 
     /**
@@ -185,6 +213,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetPastAuctionsResponse }
+     * 
+     */
+    public GetPastAuctionsResponse createGetPastAuctionsResponse() {
+        return new GetPastAuctionsResponse();
+    }
+
+    /**
      * Create an instance of {@link AddUserResponse }
      * 
      */
@@ -198,6 +234,14 @@ public class ObjectFactory {
      */
     public Item createItem() {
         return new Item();
+    }
+
+    /**
+     * Create an instance of {@link Bid }
+     * 
+     */
+    public Bid createBid() {
+        return new Bid();
     }
 
     /**
@@ -224,6 +268,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://auctioneer/", name = "addUser")
     public JAXBElement<AddUser> createAddUser(AddUser value) {
         return new JAXBElement<AddUser>(_AddUser_QNAME, AddUser.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetHighestBidForAuctionResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "getHighestBidForAuctionResponse")
+    public JAXBElement<GetHighestBidForAuctionResponse> createGetHighestBidForAuctionResponse(GetHighestBidForAuctionResponse value) {
+        return new JAXBElement<GetHighestBidForAuctionResponse>(_GetHighestBidForAuctionResponse_QNAME, GetHighestBidForAuctionResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetPastAuctions }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "getPastAuctions")
+    public JAXBElement<GetPastAuctions> createGetPastAuctions(GetPastAuctions value) {
+        return new JAXBElement<GetPastAuctions>(_GetPastAuctions_QNAME, GetPastAuctions.class, null, value);
     }
 
     /**
@@ -260,6 +322,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://auctioneer/", name = "addMessageResponse")
     public JAXBElement<AddMessageResponse> createAddMessageResponse(AddMessageResponse value) {
         return new JAXBElement<AddMessageResponse>(_AddMessageResponse_QNAME, AddMessageResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetHighestBidForAuction }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "getHighestBidForAuction")
+    public JAXBElement<GetHighestBidForAuction> createGetHighestBidForAuction(GetHighestBidForAuction value) {
+        return new JAXBElement<GetHighestBidForAuction>(_GetHighestBidForAuction_QNAME, GetHighestBidForAuction.class, null, value);
     }
 
     /**
@@ -323,6 +394,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://auctioneer/", name = "getCurrent")
     public JAXBElement<GetCurrent> createGetCurrent(GetCurrent value) {
         return new JAXBElement<GetCurrent>(_GetCurrent_QNAME, GetCurrent.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetPastAuctionsResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "getPastAuctionsResponse")
+    public JAXBElement<GetPastAuctionsResponse> createGetPastAuctionsResponse(GetPastAuctionsResponse value) {
+        return new JAXBElement<GetPastAuctionsResponse>(_GetPastAuctionsResponse_QNAME, GetPastAuctionsResponse.class, null, value);
     }
 
     /**

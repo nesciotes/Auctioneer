@@ -47,6 +47,8 @@ public class Item implements Serializable {
         this.active = true;
 
     }
+    
+    
 
     public Item() {
 
@@ -92,8 +94,8 @@ public class Item implements Serializable {
         this.remainingTime = remainingTime;
     }
 
-    public List getBids() {
-        return bids;
+    public List<Bid> getBids() {
+        return this.bids;
     }
 
     public void setBids(LinkedList bids) {
@@ -115,5 +117,7 @@ public class Item implements Serializable {
     public double getCurrentBid() {
         return this.currentBid;
     }
+    
+    
 
 }
