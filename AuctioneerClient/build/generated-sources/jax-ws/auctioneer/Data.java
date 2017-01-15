@@ -45,81 +45,6 @@ public interface Data {
 
     /**
      * 
-     * @param arg3
-     * @param arg2
-     * @param arg4
-     * @param arg1
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "addItem", targetNamespace = "http://auctioneer/", className = "auctioneer.AddItem")
-    @ResponseWrapper(localName = "addItemResponse", targetNamespace = "http://auctioneer/", className = "auctioneer.AddItemResponse")
-    @Action(input = "http://auctioneer/Data/addItemRequest", output = "http://auctioneer/Data/addItemResponse")
-    public void addItem(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        String arg2,
-        @WebParam(name = "arg3", targetNamespace = "")
-        String arg3,
-        @WebParam(name = "arg4", targetNamespace = "")
-        String arg4);
-
-    /**
-     * 
-     * @return
-     *     returns auctioneer.Item
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getCurrent", targetNamespace = "http://auctioneer/", className = "auctioneer.GetCurrent")
-    @ResponseWrapper(localName = "getCurrentResponse", targetNamespace = "http://auctioneer/", className = "auctioneer.GetCurrentResponse")
-    @Action(input = "http://auctioneer/Data/getCurrentRequest", output = "http://auctioneer/Data/getCurrentResponse")
-    public Item getCurrent();
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<auctioneer.Item>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getPastAuctions", targetNamespace = "http://auctioneer/", className = "auctioneer.GetPastAuctions")
-    @ResponseWrapper(localName = "getPastAuctionsResponse", targetNamespace = "http://auctioneer/", className = "auctioneer.GetPastAuctionsResponse")
-    @Action(input = "http://auctioneer/Data/getPastAuctionsRequest", output = "http://auctioneer/Data/getPastAuctionsResponse")
-    public List<Item> getPastAuctions();
-
-    /**
-     * 
-     * @param arg1
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "addUser", targetNamespace = "http://auctioneer/", className = "auctioneer.AddUser")
-    @ResponseWrapper(localName = "addUserResponse", targetNamespace = "http://auctioneer/", className = "auctioneer.AddUserResponse")
-    @Action(input = "http://auctioneer/Data/addUserRequest", output = "http://auctioneer/Data/addUserResponse")
-    public void addUser(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1);
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "addMessage", targetNamespace = "http://auctioneer/", className = "auctioneer.AddMessage")
-    @ResponseWrapper(localName = "addMessageResponse", targetNamespace = "http://auctioneer/", className = "auctioneer.AddMessageResponse")
-    @Action(input = "http://auctioneer/Data/addMessageRequest", output = "http://auctioneer/Data/addMessageResponse")
-    public void addMessage(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
-
-    /**
-     * 
      * @return
      *     returns java.util.List<auctioneer.Item>
      */
@@ -151,6 +76,30 @@ public interface Data {
     /**
      * 
      * @return
+     *     returns java.util.List<auctioneer.Item>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getPastAuctions", targetNamespace = "http://auctioneer/", className = "auctioneer.GetPastAuctions")
+    @ResponseWrapper(localName = "getPastAuctionsResponse", targetNamespace = "http://auctioneer/", className = "auctioneer.GetPastAuctionsResponse")
+    @Action(input = "http://auctioneer/Data/getPastAuctionsRequest", output = "http://auctioneer/Data/getPastAuctionsResponse")
+    public List<Item> getPastAuctions();
+
+    /**
+     * 
+     * @return
+     *     returns auctioneer.Item
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getCurrent", targetNamespace = "http://auctioneer/", className = "auctioneer.GetCurrent")
+    @ResponseWrapper(localName = "getCurrentResponse", targetNamespace = "http://auctioneer/", className = "auctioneer.GetCurrentResponse")
+    @Action(input = "http://auctioneer/Data/getCurrentRequest", output = "http://auctioneer/Data/getCurrentResponse")
+    public Item getCurrent();
+
+    /**
+     * 
+     * @return
      *     returns java.util.List<java.lang.String>
      */
     @WebMethod
@@ -159,6 +108,57 @@ public interface Data {
     @ResponseWrapper(localName = "getChatResponse", targetNamespace = "http://auctioneer/", className = "auctioneer.GetChatResponse")
     @Action(input = "http://auctioneer/Data/getChatRequest", output = "http://auctioneer/Data/getChatResponse")
     public List<String> getChat();
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "addMessage", targetNamespace = "http://auctioneer/", className = "auctioneer.AddMessage")
+    @ResponseWrapper(localName = "addMessageResponse", targetNamespace = "http://auctioneer/", className = "auctioneer.AddMessageResponse")
+    @Action(input = "http://auctioneer/Data/addMessageRequest", output = "http://auctioneer/Data/addMessageResponse")
+    public void addMessage(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "addUser", targetNamespace = "http://auctioneer/", className = "auctioneer.AddUser")
+    @ResponseWrapper(localName = "addUserResponse", targetNamespace = "http://auctioneer/", className = "auctioneer.AddUserResponse")
+    @Action(input = "http://auctioneer/Data/addUserRequest", output = "http://auctioneer/Data/addUserResponse")
+    public void addUser(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1);
+
+    /**
+     * 
+     * @param arg3
+     * @param arg2
+     * @param arg4
+     * @param arg1
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "addItem", targetNamespace = "http://auctioneer/", className = "auctioneer.AddItem")
+    @ResponseWrapper(localName = "addItemResponse", targetNamespace = "http://auctioneer/", className = "auctioneer.AddItemResponse")
+    @Action(input = "http://auctioneer/Data/addItemRequest", output = "http://auctioneer/Data/addItemResponse")
+    public void addItem(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        String arg3,
+        @WebParam(name = "arg4", targetNamespace = "")
+        String arg4);
 
     /**
      * 
