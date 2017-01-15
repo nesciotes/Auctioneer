@@ -29,9 +29,19 @@ public class Admin extends User_parent {
 
         this.type = type;
     }
+    
+    public Admin() {
+        
+    }
 
     public ADMINTYPE getType() {
         return type;
     }
+
+    public void setType(ADMINTYPE type) {
+        this.type = type;
+    }
+    
+    
 
 }

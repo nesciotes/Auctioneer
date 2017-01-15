@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://auctioneer/}user" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://auctioneer/}userParent" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,17 +33,17 @@ import javax.xml.bind.annotation.XmlType;
 public class LoginResponse {
 
     @XmlElement(name = "return")
-    protected User _return;
+    protected UserParent _return;
 
     /**
      * Gets the value of the return property.
      * 
      * @return
      *     possible object is
-     *     {@link User }
+     *     {@link UserParent }
      *     
      */
-    public User getReturn() {
+    public UserParent getReturn() {
         return _return;
     }
 
@@ -52,10 +52,10 @@ public class LoginResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link User }
+     *     {@link UserParent }
      *     
      */
-    public void setReturn(User value) {
+    public void setReturn(UserParent value) {
         this._return = value;
     }
 

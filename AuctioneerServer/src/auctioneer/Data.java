@@ -5,11 +5,13 @@
  */
 package auctioneer;
 
+import controllers.Admin;
 import controllers.Bid;
 import controllers.Controller;
 import controllers.Item;
 import controllers.SaltyPassword;
 import controllers.User;
+import controllers.User_parent;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -32,6 +34,27 @@ public class Data implements IData {
 
     public Data() {
         this.em = Persistence.createEntityManagerFactory("auctioneer");
+
+        //Dummy data
+        addItem("Test item 1", "123", "ba", "1.55", "2.75");
+        addItem("Test item 2", "123", "ba", "11.15", "2.75");
+        addItem("Test item 3", "123", "ba", "25.00", "2.75");
+        addItem("Test item 4", "123", "ba", "5.00", "2.75");
+        addItem("Test item 5", "123", "ba", "3.25", "2.75");
+        addItem("Test item 6", "123", "ba", "7.12", "2.75");
+        addItem("Test item 7", "123", "ba", "9.35", "2.75");
+        addItem("Test item 8", "123", "ba", "25.15", "2.75");
+        addItem("Test item 9", "123", "ba", "30.00", "2.75");
+        addItem("Test item 10", "123", "ba", "1.00", "2.75");
+
+        Admin c = new Admin("Admin", new Date(), "pass");
+        SaltyPassword sp = new SaltyPassword();
+        byte[] salt = sp.getSalt();
+        String hashedPassword = sp.getSecurePassword("pass", salt);
+        c.setPassword(hashedPassword);
+        c.setSalt(salt);
+        c.setType(Admin.ADMINTYPE.DISTRIBUTOR);
+        persist(c);
     }
 
     @Override
@@ -61,12 +84,8 @@ public class Data implements IData {
     }
 
     @Override
-    public User login(String username, String password) {
+    public User_parent login(String username, String password) {
         EntityManager em_temp = this.em.createEntityManager();
-
-        User login = new User();
-        login.setUsername(username);
-        login.setPassword(password);
 
         Object acc = null;
 
@@ -82,15 +101,38 @@ public class Data implements IData {
         if (acc == null) {
             return null;
         }
-        User a_temp = (User) acc;
-        User a = new User();
 
-        a.setUsername(a_temp.getUsername());
-        a.setPassword(a_temp.getPassword());
-        a.setId(a_temp.getId());
-        a.setAddress(a_temp.getAddress());
-        a.setSalt(a_temp.getSalt());
-        a.setWonItems(a_temp.getWonItems());
+        User_parent login;
+        User_parent a;
+        User_parent a_temp;
+
+        if (acc.getClass() == User.class) {
+            a_temp = (User) acc;
+
+            a = new User();
+
+            a.setUsername(a_temp.getUsername());
+            a.setPassword(a_temp.getPassword());
+            a.setId(a_temp.getId());
+            a.setSalt(a_temp.getSalt());
+
+            login = new User();
+            login.setUsername(username);
+
+        } else {
+            a_temp = (Admin) acc;
+
+            a = new Admin();
+
+            a.setUsername(a_temp.getUsername());
+            a.setPassword(a_temp.getPassword());
+            a.setId(a_temp.getId());
+            a.setSalt(a_temp.getSalt());
+
+            login = new Admin();
+            login.setUsername(username);
+
+        }
 
         SaltyPassword sp = new SaltyPassword();
         login.setPassword(sp.getSecurePassword(password, a_temp.getSalt()));
@@ -203,12 +245,12 @@ public class Data implements IData {
     @Override
     public Bid getHighestBidForAuction(int placeInList) {
         List<Item> pastAuctions = getPastAuctions();
-        
+
         return pastAuctions.get(placeInList).getHighestBid();
     }
 
     @Override
-    public boolean placeBid(User user, String amount) {
+    public boolean placeBid(User_parent user, String amount) {
         double amount_tmp;
         try {
             amount_tmp = Double.parseDouble(amount);
@@ -216,6 +258,6 @@ public class Data implements IData {
         } catch (Exception e) {
             return false;
         }
-        return Controller.getController().addBid(Controller.getController().getCurrentAuction(), user, amount_tmp);
+        return Controller.getController().addBid(Controller.getController().getCurrentAuction(), (User) user, amount_tmp);
     }
 }

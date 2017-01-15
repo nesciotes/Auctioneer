@@ -19,6 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="password" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="salt" type="{http://www.w3.org/2001/XMLSchema}base64Binary" minOccurs="0"/>
  *         &lt;element name="username" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -32,15 +33,18 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "userParent", propOrder = {
     "id",
     "password",
+    "salt",
     "username"
 })
 @XmlSeeAlso({
+    Admin.class,
     User.class
 })
 public abstract class UserParent {
 
     protected int id;
     protected String password;
+    protected byte[] salt;
     protected String username;
 
     /**
@@ -81,6 +85,28 @@ public abstract class UserParent {
      */
     public void setPassword(String value) {
         this.password = value;
+    }
+
+    /**
+     * Gets the value of the salt property.
+     * 
+     * @return
+     *     possible object is
+     *     byte[]
+     */
+    public byte[] getSalt() {
+        return salt;
+    }
+
+    /**
+     * Sets the value of the salt property.
+     * 
+     * @param value
+     *     allowed object is
+     *     byte[]
+     */
+    public void setSalt(byte[] value) {
+        this.salt = value;
     }
 
     /**

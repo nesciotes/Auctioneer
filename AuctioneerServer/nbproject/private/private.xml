@@ -3,19 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/NesciO/Afbeeldingen/Opdracht%203%20Service/AuctioneerServer/src/auctioneer/Data.java</file>
-            <file>file:/D:/NesciO/Afbeeldingen/Opdracht%203%20Service/AuctioneerServer/src/META-INF/persistence.xml</file>
-            <file>file:/D:/NesciO/Afbeeldingen/Opdracht%203%20Service/AuctioneerServer/src/auctioneer/IData.java</file>
-            <file>file:/D:/NesciO/Afbeeldingen/Opdracht%203%20Service/AuctioneerServer/src/controllers/Distributor.java</file>
-            <file>file:/D:/NesciO/Afbeeldingen/Opdracht%203%20Service/AuctioneerServer/src/controllers/User.java</file>
-            <file>file:/D:/NesciO/Afbeeldingen/Opdracht%203%20Service/AuctioneerServer/src/controllers/Item.java</file>
-            <file>file:/D:/NesciO/Afbeeldingen/Opdracht%203%20Service/AuctioneerServer/src/auctioneer/Auctioneer.java</file>
-            <file>file:/D:/NesciO/Afbeeldingen/Opdracht%203%20Service/AuctioneerServer/src/controllers/Admin.java</file>
-            <file>file:/D:/NesciO/Afbeeldingen/Opdracht%203%20Service/AuctioneerServer/src/controllers/User_parent.java</file>
-            <file>file:/D:/NesciO/Afbeeldingen/Opdracht%203%20Service/AuctioneerServer/src/controllers/SaltyPassword.java</file>
-            <file>file:/D:/NesciO/Afbeeldingen/Opdracht%203%20Service/AuctioneerServer/nbproject/build-impl.xml</file>
-            <file>file:/D:/NesciO/Afbeeldingen/Opdracht%203%20Service/AuctioneerServer/src/controllers/Bid.java</file>
-            <file>file:/D:/NesciO/Afbeeldingen/Opdracht%203%20Service/AuctioneerServer/src/controllers/Controller.java</file>
+            <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerServer/src/controllers/Distributor.java</file>
+            <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerServer/src/auctioneer/Data.java</file>
+            <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerServer/src/controllers/Item.java</file>
+            <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerServer/src/controllers/Bid.java</file>
+            <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerServer/src/auctioneer/Auctioneer.java</file>
+            <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerServer/src/controllers/Controller.java</file>
+            <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerServer/src/auctioneer/IData.java</file>
+            <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerServer/src/META-INF/persistence.xml</file>
         </group>
     </open-files>
 </project-private>

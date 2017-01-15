@@ -8,6 +8,7 @@ package auctioneer;
 import controllers.Bid;
 import controllers.Item;
 import controllers.User;
+import controllers.User_parent;
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ import java.util.List;
  */
 public interface IData {
 
-    User login(String username, String password);
+    User_parent login(String username, String password);
 
     void addUser(String username, String password);
 
@@ -33,7 +34,7 @@ public interface IData {
     
     void addMessage(String message);
     
-    boolean placeBid(User user, String amount);
+    boolean placeBid(User_parent user, String amount);
     
     Bid getHighestBidForAuction(int placeInList);
 

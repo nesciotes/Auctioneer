@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="arg0" type="{http://auctioneer/}user" minOccurs="0"/>
+ *         &lt;element name="arg0" type="{http://auctioneer/}userParent" minOccurs="0"/>
  *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class PlaceBid {
 
-    protected User arg0;
+    protected UserParent arg0;
     protected String arg1;
 
     /**
@@ -41,10 +41,10 @@ public class PlaceBid {
      * 
      * @return
      *     possible object is
-     *     {@link User }
+     *     {@link UserParent }
      *     
      */
-    public User getArg0() {
+    public UserParent getArg0() {
         return arg0;
     }
 
@@ -53,10 +53,10 @@ public class PlaceBid {
      * 
      * @param value
      *     allowed object is
-     *     {@link User }
+     *     {@link UserParent }
      *     
      */
-    public void setArg0(User value) {
+    public void setArg0(UserParent value) {
         this.arg0 = value;
     }
 

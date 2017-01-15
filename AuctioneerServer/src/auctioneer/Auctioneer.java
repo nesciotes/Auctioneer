@@ -33,16 +33,14 @@ public class Auctioneer extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        initi();
+        initialize();
     }
 
-    private void initi() {
-        Data.addItem("testitem1", "123", "ba", "1.55", "2.75");
-        Data.addItem("testitem2", "123", "ba", "11.15", "2.75");
-        Data.addItem("testitem3", "123", "ba", "25.00", "2.75");
+    private void initialize() {
+             
 
-        int delay = 5000;   // delay for 5 sec.
-        int interval = 1000;  // iterate every sec.
+        int delay = 1000;   
+        int interval = 1000; 
         Timer timer = new Timer();
 
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -51,19 +49,6 @@ public class Auctioneer extends Application {
 
             }
         }, delay, interval);
-
-        /*        Data.addProduct(new HardwareProduct("Razer Megalodon", 150.0, "V2"));
-        Data.addProduct(new HardwareProduct("Razer Deathadder", 50.0, "Green"));
-        Data.addProduct(new HardwareProduct("Steelseries Siberia", 130.0, "Arctic"));
-        Data.addProduct(new SoftwareProduct("WOTLK", 60.0, 3.55));
-        Data.addProduct(new SoftwareProduct("Duck Hunt!!", 19.95, 4.20));
-        Data.addProduct(new SoftwareProduct("ZWindows", 1130.0, 13.37));
-
-        Account hacks = new Account("admin", "admin");
-        Customer c = new Customer("Lucario", "RidolioLaan 420");
-        Data.addCustomer(c);
-        hacks.setCustomer(c);
-        Data.addAccount("admin", "admin", "lucario", "1");*/
     }
 
     /**

@@ -229,6 +229,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Admin }
+     * 
+     */
+    public Admin createAdmin() {
+        return new Admin();
+    }
+
+    /**
      * Create an instance of {@link Item }
      * 
      */

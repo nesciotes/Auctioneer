@@ -20,7 +20,6 @@ import javax.persistence.*;
 public class User extends User_parent implements Serializable {
 
     private String address;
-    private byte[] salt;
 
     @Lob
     private HashMap<Item, Double> wonItems;
@@ -56,12 +55,5 @@ public class User extends User_parent implements Serializable {
         this.wonItems.put(bid.getItem(), bid.getAmount());
     }
 
-    public void setSalt(byte[] salt) {
-        this.salt = salt;
-    }
-
-    public byte[] getSalt() {
-        return salt;
-    }
 
 }

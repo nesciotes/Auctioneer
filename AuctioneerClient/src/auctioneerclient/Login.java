@@ -6,11 +6,13 @@
 package auctioneerclient;
 
 import auctioneer.User;
+import auctioneer.UserParent;
+import controllers.User_parent;
 
 /**
  *
  * @author NesciO
  */
 public class Login {
-    public static User user;
+    public static UserParent user;
 }

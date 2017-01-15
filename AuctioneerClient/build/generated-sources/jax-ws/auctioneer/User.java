@@ -20,7 +20,6 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;extension base="{http://auctioneer/}userParent">
  *       &lt;sequence>
  *         &lt;element name="address" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="salt" type="{http://www.w3.org/2001/XMLSchema}base64Binary" minOccurs="0"/>
  *         &lt;element name="wonItems">
  *           &lt;complexType>
  *             &lt;complexContent>
@@ -54,7 +53,6 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "user", propOrder = {
     "address",
-    "salt",
     "wonItems"
 })
 public class User
@@ -62,7 +60,6 @@ public class User
 {
 
     protected String address;
-    protected byte[] salt;
     @XmlElement(required = true)
     protected User.WonItems wonItems;
 
@@ -88,28 +85,6 @@ public class User
      */
     public void setAddress(String value) {
         this.address = value;
-    }
-
-    /**
-     * Gets the value of the salt property.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
-     */
-    public byte[] getSalt() {
-        return salt;
-    }
-
-    /**
-     * Sets the value of the salt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
-     */
-    public void setSalt(byte[] value) {
-        this.salt = value;
     }
 
     /**

@@ -6,7 +6,9 @@ package auctioneerclient;
  * and open the template in the editor.
  */
 import auctioneer.DataService;
+import auctioneer.UserParent;
 import controllers.User;
+import controllers.User_parent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -84,16 +86,26 @@ public class LoginController implements Initializable {
         String username = tbUsername.getText();
         String password = tbPassword.getText();
 
-        auctioneer.User acc = port.login(username, password);
+        
+        UserParent acc = port.login(username, password);
         if (acc != null) {
             Date date = new Date();
             User user = new User(acc.getUsername(), date, acc.getPassword(), "home");
 
             if (user.getId() != -1) {
                 Login.user = acc;
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("MainScreen.fxml"));
-                MainScreenController lc = loader.getController();
-                Parent root = loader.load();
+
+                Parent root;
+                
+                if (acc.getClass() == auctioneer.User.class) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("MainScreen.fxml"));
+                    MainScreenController lc = loader.getController();
+                    root = loader.load();
+                } else {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("MainScreenAdmin.fxml"));
+                    MainScreenController lc = loader.getController();
+                    root = loader.load();
+                }
 
                 Scene scene = new Scene(root);
                 Stage stage = (Stage) btnLogin.getScene().getWindow();

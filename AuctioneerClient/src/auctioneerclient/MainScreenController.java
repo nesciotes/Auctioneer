@@ -144,7 +144,6 @@ public class MainScreenController implements Initializable {
     }
 
     protected void tick() {
-        try {
             DataService service = new DataService();
             auctioneer.Data port = (auctioneer.Data) service.getDataPort();
 
@@ -152,9 +151,7 @@ public class MainScreenController implements Initializable {
             getChat(port);
             getPastAuctions(port);
 
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+
     }
 
     protected void getCurrentAuction(auctioneer.Data port) {
@@ -166,7 +163,8 @@ public class MainScreenController implements Initializable {
 
             lblCurrentName.setText(currentAuction.getName());
             lblCurrent.setText(currentAuction.getDescription());
-            lblCurrentAmount.setText("€" + currentAuction.getCurrentBid());
+
+            lblCurrentAmount.setText("€" + String.format("%.2f", currentAuction.getCurrentBid()));
 
             int minutes = (int) Math.floor(currentAuction.getRemainingTime() / 60);
             String seconds = String.format("%02d", currentAuction.getRemainingTime() % 60);
@@ -267,28 +265,29 @@ public class MainScreenController implements Initializable {
             currentname.setText(current.getName());
             if (winningBid != null) {
                 finished2.setText(winningBid.getUser().getUsername());
-                price.setText("€" + winningBid.getAmount());
+
+                price.setText("€" + String.format("%.2f", winningBid.getAmount()));
             } else {
                 finished2.setText("Nobody");
                 price.setText("");
             }
         }
     }
-    
+
     @FXML
     private void logOut(ActionEvent event) throws IOException {
         Login.user = null;
-        
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Login2.fxml"));
-                MainScreenController lc = loader.getController();
-                Parent root = loader.load();
+        MainScreenController lc = loader.getController();
+        Parent root = loader.load();
 
-                Scene scene = new Scene(root);
-                Stage stage = (Stage) btnLogout.getScene().getWindow();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) btnLogout.getScene().getWindow();
 
-                stage.setScene(scene);
+        stage.setScene(scene);
 
-                stage.show();
+        stage.show();
     }
 
     protected void getPastAuctions(auctioneer.Data port) {
@@ -312,7 +311,7 @@ public class MainScreenController implements Initializable {
             setPastAuction(false, lblCurrentName12, lblFinishedlbl3, lblFinished3, lblFinishedPrice3, ivFinished3, port, - 1, pastAuctions);
 
         } else {
-            setPastAuction(false, lblCurrentName1, lblFinishedlbl1, lblFinished1, lblFinishedPrice1, ivFinished1, port,  - 1, pastAuctions);
+            setPastAuction(false, lblCurrentName1, lblFinishedlbl1, lblFinished1, lblFinishedPrice1, ivFinished1, port, - 1, pastAuctions);
             setPastAuction(false, lblCurrentName11, lblFinishedlbl2, lblFinished2, lblFinishedPrice2, ivFinished2, port, - 1, pastAuctions);
             setPastAuction(false, lblCurrentName12, lblFinishedlbl3, lblFinished3, lblFinishedPrice3, ivFinished3, port, - 1, pastAuctions);
         }
