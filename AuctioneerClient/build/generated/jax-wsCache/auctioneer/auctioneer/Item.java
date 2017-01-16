@@ -25,6 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="paid" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="remainingTime" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="startingPrice" type="{http://www.w3.org/2001/XMLSchema}double"/>
+ *         &lt;element name="winnerName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -43,7 +44,8 @@ import javax.xml.bind.annotation.XmlType;
     "ownerName",
     "paid",
     "remainingTime",
-    "startingPrice"
+    "startingPrice",
+    "winnerName"
 })
 public class Item {
 
@@ -56,6 +58,7 @@ public class Item {
     protected boolean paid;
     protected int remainingTime;
     protected double startingPrice;
+    protected String winnerName;
 
     /**
      * Gets the value of the currentBid property.
@@ -223,6 +226,30 @@ public class Item {
      */
     public void setStartingPrice(double value) {
         this.startingPrice = value;
+    }
+
+    /**
+     * Gets the value of the winnerName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getWinnerName() {
+        return winnerName;
+    }
+
+    /**
+     * Sets the value of the winnerName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setWinnerName(String value) {
+        this.winnerName = value;
     }
 
 }

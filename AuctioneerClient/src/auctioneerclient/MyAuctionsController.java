@@ -117,12 +117,18 @@ public class MyAuctionsController implements Initializable {
         System.out.println(Login.user);
         User user = port.getAccountInfo(Login.user.getUsername());
 
-        List<User.WonItems.Entry> wonItems = user.getWonItems().getEntry();
+        //List<User.WonItems.Entry> wonItems = user.getWonItems().getEntry();
+        List<Item> items = port.getMyAuctions(Login.user.getUsername());
 
-        for (User.WonItems.Entry e : wonItems) {
+        /*for (User.WonItems.Entry e : wonItems) {
             ttv.getItems().add(e.getKey());
             ttv1.getItems().add(e.getValue().doubleValue());
             ttv2.getItems().add(e.getKey().isPaid() ? "Yes" : "No");
+        }*/
+        for (Item e : items) {
+            ttv.getItems().add(e);
+            ttv1.getItems().add(e.getCurrentBid());
+            ttv2.getItems().add(e.isPaid() ? "Yes" : "No");
         }
 
     }
@@ -169,13 +175,20 @@ public class MyAuctionsController implements Initializable {
 
         User user = port.getAccountInfo(Login.user.getUsername());
 
-        List<User.WonItems.Entry> wonItems = user.getWonItems().getEntry();
+        //List<User.WonItems.Entry> wonItems = user.getWonItems().getEntry();
+        
+        List<Item> items = port.getMyAuctions(Login.user.getUsername());
 
         double totalAmount = 0;
 
-        for (User.WonItems.Entry e : wonItems) {
+        /*for (User.WonItems.Entry e : wonItems) {
             if (!e.getKey().isPaid()) {
                 totalAmount += e.getValue();
+            }
+        }*/
+        for (Item e : items) {
+            if (!e.isPaid()) {
+                totalAmount += e.getCurrentBid();
             }
         }
 
@@ -185,9 +198,14 @@ public class MyAuctionsController implements Initializable {
         alert.setContentText("Please send €" + totalAmount + " to IBAN NL07INGB0009003822 with name 'De Hr RMTJ Clark' and we will process your payment as soon as possible.");
         alert.show();
 
-        for (User.WonItems.Entry e : wonItems) {
+        /*for (User.WonItems.Entry e : wonItems) {
             if (!e.getKey().isPaid()) {
                 port.itemPaid(e.getKey(), Login.user.getUsername());
+            }
+        }*/
+        for (Item e : items) {
+            if (!e.isPaid()) {
+                port.itemPaid(e, Login.user.getUsername());
             }
         }
     }

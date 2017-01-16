@@ -123,7 +123,6 @@ public class Controller {
                     item.addBid(new Bid(amount, item, user));
                     item.setCurrentBid(amount);
                     Data.updateItem(currentAuction);
-                    Data.itemWon(item, user.getUsername());
 
                     return true;
                 }
@@ -132,7 +131,6 @@ public class Controller {
                 item.setCurrentBid(amount);
 
                 Data.updateItem(currentAuction);
-                Data.itemWon(item, user.getUsername());
 
                 return true;
             }
@@ -147,14 +145,18 @@ public class Controller {
         this.lastAuction = currentAuction;
 
         currentAuction.setActive(false);
+        if (currentAuction.getHighestBidder() != null) {
+            currentAuction.setWinnerName(currentAuction.getHighestBidder().getUsername());
+        } else {
+            currentAuction.setWinnerName("");
+
+        }
         Data.updateItem(currentAuction);
 
         if (this.currentAuction.getBids() != null) {
             if (this.currentAuction.getBids().size() > 0) {
                 User u = this.currentAuction.getHighestBidder();
-                u = Data.getAccountInfoLocal(u.getUsername());
-                u.addItem(currentAuction.getHighestBid());
-                Data.persist(u);
+                Data.itemWon(currentAuction, u.getUsername());
 
             }
         }

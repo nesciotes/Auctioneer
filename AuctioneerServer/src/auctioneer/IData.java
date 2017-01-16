@@ -38,7 +38,7 @@ public interface IData {
     
     Bid getHighestBidForAuction(int placeInList);
     
-    List<Item> getMyAuctions();
+    List<Item> getMyAuctions(String winnerName);
     
     User getAccountInfo(String username);
     

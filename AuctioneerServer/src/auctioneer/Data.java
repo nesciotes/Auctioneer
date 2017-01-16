@@ -84,14 +84,15 @@ public class Data implements IData {
     }
 
     @Override
-    public List<Item> getMyAuctions() {
+    public List<Item> getMyAuctions(String winnerName) {
         EntityManager em_temp = this.em.createEntityManager();
 
         Object items = null;
 
         try {
             items = em_temp.createQuery(
-                    "SELECT i FROM Item i WHERE active = true")
+                    "SELECT i FROM Item i WHERE winnerName = :winnerName")
+                    .setParameter("winnerName", winnerName)
                     .getResultList();
             em_temp.close();
         } catch (Exception e) {
@@ -100,7 +101,6 @@ public class Data implements IData {
         if (items == null) {
             return null;
         }
-        Controller.getController().updateAuctions((List<Item>) items);
         return (List<Item>) items;
     }
     
@@ -197,6 +197,14 @@ public class Data implements IData {
         }
         User user = (User) acc;
 
+         Map<Item, Double> temp_wonItems = user.getWonItems();
+        user.setWonItems(new HashMap<>());
+
+        for (Entry<Item, Double> i : temp_wonItems.entrySet()) {
+            if (!i.getKey().getName().equals(item.getName())) {
+                user.getWonItems().put(i.getKey(), i.getValue());
+            }
+        }
 
         user.getWonItems().put(item, item.getCurrentBid());
         persist(user);

@@ -25,6 +25,7 @@ public class Item implements Serializable{
     private int remainingTime;
     private double currentBid;
     private String ownerName;
+    private String winnerName;
 
     private boolean paid;
     private boolean active;
@@ -59,6 +60,16 @@ public class Item implements Serializable{
         this.paid = false;
 
     }
+
+    public String getWinnerName() {
+        return winnerName;
+    }
+
+    public void setWinnerName(String winnerName) {
+        this.winnerName = winnerName;
+    }
+    
+    
 
     public String getOwnerName() {
         return ownerName;
@@ -171,7 +182,7 @@ public class Item implements Serializable{
     }
 
     public User getHighestBidder() {
-        return this.bids.get(bids.size() - 1).getUser();
+        return bids.size() > 0 ? this.bids.get(bids.size() - 1).getUser() : null;
     }
 
     public double getCurrentBid() {
