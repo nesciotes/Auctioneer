@@ -86,7 +86,6 @@ public class LoginController implements Initializable {
         String username = tbUsername.getText();
         String password = tbPassword.getText();
 
-        
         UserParent acc = port.login(username, password);
         if (acc != null) {
             Date date = new Date();
@@ -96,7 +95,7 @@ public class LoginController implements Initializable {
                 Login.user = acc;
 
                 Parent root;
-                
+
                 if (acc.getClass() == auctioneer.User.class) {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("MainScreen.fxml"));
                     MainScreenController lc = loader.getController();
@@ -140,12 +139,19 @@ public class LoginController implements Initializable {
         byte[] salt = sp.getSalt();
 
         u.setSalt(salt);
-        port.addUser(u.getUsername(), u.getPassword());
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Register successful");
-        alert.setHeaderText("Your registry as " + tbUsername4.getText() + " was successful");
-        alert.setContentText("You can now log in");
-        alert.show();
+        if (port.addUser(u.getUsername(), u.getPassword())) {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Register successful");
+            alert.setHeaderText("Your registry as " + tbUsername4.getText() + " was successful");
+            alert.setContentText("You can now log in");
+            alert.show();
+        } else {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Registry failed");
+            alert.setHeaderText("Your registry has failed");
+            alert.setContentText("Please make sure you didn't forget to enter your username or password. If you did and this message still appears, the username is already taken.");
+            alert.show();
+        }
     }
 
 }

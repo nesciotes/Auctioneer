@@ -19,7 +19,7 @@ public interface IData {
 
     User_parent login(String username, String password);
 
-    void addUser(String username, String password);
+    boolean addUser(String username, String password);
 
     Item getCurrent();
 

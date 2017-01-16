@@ -36,6 +36,7 @@ public class Data implements IData {
         this.em = Persistence.createEntityManagerFactory("auctioneer");
 
         //Dummy data
+        /*
         addItem("Test item 1", "123", "ba", "1.55", "2.75", "Admin");
         addItem("Test item 2", "123", "ba", "11.15", "2.75", "Admin");
         addItem("Test item 3", "123", "ba", "25.00", "2.75", "Admin");
@@ -46,7 +47,7 @@ public class Data implements IData {
         addItem("Test item 8", "123", "ba", "25.15", "2.75", "Admin");
         addItem("Test item 9", "123", "ba", "30.00", "2.75", "Admin");
         addItem("Test item 10", "123", "ba", "1.00", "2.75", "Admin");
-
+         */
         Admin c = new Admin("Admin", new Date(), "pass");
         SaltyPassword sp = new SaltyPassword();
         byte[] salt = sp.getSalt();
@@ -58,19 +59,44 @@ public class Data implements IData {
     }
 
     @Override
-    public void addUser(String username, String password) {
-        Date today = new Date();
-        User c = new User(username, today, password, "home");
+    public boolean addUser(String username, String password) {
+        EntityManager em_temp = this.em.createEntityManager();
 
-        SaltyPassword sp = new SaltyPassword();
+        Object acc = null;
+        boolean create = false;
+        
+        if(username.length() < 1 || password.length() < 1) {
+            return false;
+        }
 
-        byte[] salt = sp.getSalt();
-        String hashedPassword = sp.getSecurePassword(password, salt);
+        try {
+            acc = em_temp.createQuery(
+                    "SELECT OBJECT(u) FROM User_parent u WHERE u.username = :username")
+                    .setParameter("username", username)
+                    .getSingleResult();
+            em_temp.close();
+        } catch (Exception e) {
+            create = true;
+        }
 
-        c.setPassword(hashedPassword);
-        c.setSalt(salt);
+        if (create) {
 
-        persist(c);
+            Date today = new Date();
+            User c = new User(username, today, password, "home");
+
+            SaltyPassword sp = new SaltyPassword();
+
+            byte[] salt = sp.getSalt();
+            String hashedPassword = sp.getSecurePassword(password, salt);
+
+            c.setPassword(hashedPassword);
+            c.setSalt(salt);
+
+            persist(c);
+        } else {
+            return false;
+        }
+        return true;
     }
 
     public static void persist(Object o) {
@@ -103,7 +129,7 @@ public class Data implements IData {
         }
         return (List<Item>) items;
     }
-    
+
     @Override
     public List<Item> getMyQueue(String ownerName) {
         EntityManager em_temp = this.em.createEntityManager();
@@ -180,7 +206,7 @@ public class Data implements IData {
 
         persist(user);
     }
-    
+
     public static void itemWon(Item item, String username) {
         EntityManager em_temp = em.createEntityManager();
 
@@ -197,7 +223,7 @@ public class Data implements IData {
         }
         User user = (User) acc;
 
-         Map<Item, Double> temp_wonItems = user.getWonItems();
+        Map<Item, Double> temp_wonItems = user.getWonItems();
         user.setWonItems(new HashMap<>());
 
         for (Entry<Item, Double> i : temp_wonItems.entrySet()) {

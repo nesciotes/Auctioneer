@@ -280,7 +280,9 @@
 </xs:complexType>
 
 <xs:complexType name="addUserResponse">
-<xs:sequence></xs:sequence>
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"></xs:element>
+</xs:sequence>
 </xs:complexType>
 
 <xs:simpleType name="admintype">

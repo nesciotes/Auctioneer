@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -9,17 +10,15 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="574.0" prefWidth="1060.0" style="-fx-background-color: #444; -fx-border-color: #ddd;" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="auctioneerclient.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="574.0" prefWidth="1060.0" style="-fx-background-color: #444; -fx-border-color: #ddd;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="auctioneerclient.LoginController">
     <children>
-      <Button fx:id="btnLogin" layoutX="71.0" layoutY="396.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #777;" text="Login" textFill="#70cd82">
+      <Button fx:id="btnLogin" layoutX="71.0" layoutY="395.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #777;" text="Login" textFill="#70cd82">
          <font>
             <Font size="15.0" />
          </font></Button>
       <TextField fx:id="tbUsername" layoutX="71.0" layoutY="323.0" onAction="#login" promptText="Username" />
-      <TextField fx:id="tbPassword" layoutX="71.0" layoutY="358.0" onAction="#login" promptText="Password" />
       <TextField fx:id="tbAdress" layoutX="503.0" layoutY="423.0" promptText="Address" />
       <TextField fx:id="tbName" layoutX="503.0" layoutY="385.0" promptText="Name" />
-      <TextField fx:id="tbPassword4" layoutX="503.0" layoutY="350.0" promptText="Password" />
       <TextField fx:id="tbUsername4" layoutX="503.0" layoutY="317.0" onAction="#login" promptText="Username" />
       <Button fx:id="btnRegister" layoutX="503.0" layoutY="460.0" mnemonicParsing="false" onAction="#register" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #777;" text="Register" textFill="#70cd82">
          <font>
@@ -46,5 +45,7 @@
             <Font name="System Bold" size="33.0" />
          </font>
       </Label>
+      <PasswordField fx:id="tbPassword" layoutX="71.0" layoutY="363.0" promptText="Password" />
+      <PasswordField fx:id="tbPassword4" layoutX="503.0" layoutY="351.0" promptText="Password" />
    </children>
 </AnchorPane>
