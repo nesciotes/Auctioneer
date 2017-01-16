@@ -24,6 +24,7 @@ public class Item implements Serializable{
     private double minimumPrice;
     private int remainingTime;
     private double currentBid;
+    private String ownerName;
 
     private boolean paid;
     private boolean active;
@@ -58,6 +59,16 @@ public class Item implements Serializable{
         this.paid = false;
 
     }
+
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
+    
+    
 
     public boolean isPaid() {
         return paid;

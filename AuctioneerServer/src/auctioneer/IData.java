@@ -23,7 +23,7 @@ public interface IData {
 
     Item getCurrent();
 
-    void addItem(String name, String description, String imagepath, String startingprice, String mininumprice);
+    void addItem(String name, String description, String imagepath, String startingprice, String mininumprice, String username);
 
 
     List<Item> getAllAuctions();
@@ -43,5 +43,7 @@ public interface IData {
     User getAccountInfo(String username);
     
     void itemPaid(Item item, String username);
+    
+    List<Item> getMyQueue(String ownerName);
 
 }

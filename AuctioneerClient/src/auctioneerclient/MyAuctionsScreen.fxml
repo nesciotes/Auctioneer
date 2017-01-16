@@ -51,12 +51,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btnPaySelected" layoutX="536.0" layoutY="218.0" minHeight="23.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="163.0" style="-fx-background-color: #777; -fx-border-radius: ;" text="Pay selected" textFill="#70cd82">
-         <font>
-            <Font size="21.0" />
-         </font>    
-      </Button>
-      <Button fx:id="btnPayAll" layoutX="536.0" layoutY="278.0" minHeight="23.0" mnemonicParsing="false" onAction="#payAll" prefHeight="45.0" prefWidth="163.0" style="-fx-background-color: #777; -fx-border-radius: ;" text="Pay all" textFill="#70cd82">
+      <Button fx:id="btnPayAll" layoutX="538.0" layoutY="218.0" minHeight="23.0" mnemonicParsing="false" onAction="#payAll" prefHeight="302.0" prefWidth="163.0" style="-fx-background-color: #777; -fx-border-radius: ;" text="Pay all" textFill="#70cd82">
          <font>
             <Font size="21.0" />
          </font>

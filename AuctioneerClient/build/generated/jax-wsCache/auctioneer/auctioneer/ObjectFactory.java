@@ -34,6 +34,7 @@ public class ObjectFactory {
     private final static QName _GetHighestBidForAuction_QNAME = new QName("http://auctioneer/", "getHighestBidForAuction");
     private final static QName _ItemPaid_QNAME = new QName("http://auctioneer/", "itemPaid");
     private final static QName _AddItem_QNAME = new QName("http://auctioneer/", "addItem");
+    private final static QName _GetMyQueueResponse_QNAME = new QName("http://auctioneer/", "getMyQueueResponse");
     private final static QName _GetMyAuctions_QNAME = new QName("http://auctioneer/", "getMyAuctions");
     private final static QName _GetAllAuctions_QNAME = new QName("http://auctioneer/", "getAllAuctions");
     private final static QName _GetChatResponse_QNAME = new QName("http://auctioneer/", "getChatResponse");
@@ -48,6 +49,7 @@ public class ObjectFactory {
     private final static QName _GetChat_QNAME = new QName("http://auctioneer/", "getChat");
     private final static QName _GetAllAuctionsResponse_QNAME = new QName("http://auctioneer/", "getAllAuctionsResponse");
     private final static QName _GetAccountInfo_QNAME = new QName("http://auctioneer/", "getAccountInfo");
+    private final static QName _GetMyQueue_QNAME = new QName("http://auctioneer/", "getMyQueue");
     private final static QName _PlaceBid_QNAME = new QName("http://auctioneer/", "placeBid");
     private final static QName _GetCurrent_QNAME = new QName("http://auctioneer/", "getCurrent");
 
@@ -152,6 +154,14 @@ public class ObjectFactory {
      */
     public ItemPaid createItemPaid() {
         return new ItemPaid();
+    }
+
+    /**
+     * Create an instance of {@link GetMyQueueResponse }
+     * 
+     */
+    public GetMyQueueResponse createGetMyQueueResponse() {
+        return new GetMyQueueResponse();
     }
 
     /**
@@ -264,6 +274,14 @@ public class ObjectFactory {
      */
     public GetAccountInfo createGetAccountInfo() {
         return new GetAccountInfo();
+    }
+
+    /**
+     * Create an instance of {@link GetMyQueue }
+     * 
+     */
+    public GetMyQueue createGetMyQueue() {
+        return new GetMyQueue();
     }
 
     /**
@@ -405,6 +423,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetMyQueueResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "getMyQueueResponse")
+    public JAXBElement<GetMyQueueResponse> createGetMyQueueResponse(GetMyQueueResponse value) {
+        return new JAXBElement<GetMyQueueResponse>(_GetMyQueueResponse_QNAME, GetMyQueueResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetMyAuctions }{@code >}}
      * 
      */
@@ -528,6 +555,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://auctioneer/", name = "getAccountInfo")
     public JAXBElement<GetAccountInfo> createGetAccountInfo(GetAccountInfo value) {
         return new JAXBElement<GetAccountInfo>(_GetAccountInfo_QNAME, GetAccountInfo.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetMyQueue }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "getMyQueue")
+    public JAXBElement<GetMyQueue> createGetMyQueue(GetMyQueue value) {
+        return new JAXBElement<GetMyQueue>(_GetMyQueue_QNAME, GetMyQueue.class, null, value);
     }
 
     /**

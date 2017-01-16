@@ -36,16 +36,16 @@ public class Data implements IData {
         this.em = Persistence.createEntityManagerFactory("auctioneer");
 
         //Dummy data
-        addItem("Test item 1", "123", "ba", "1.55", "2.75");
-        addItem("Test item 2", "123", "ba", "11.15", "2.75");
-        addItem("Test item 3", "123", "ba", "25.00", "2.75");
-        addItem("Test item 4", "123", "ba", "5.00", "2.75");
-        addItem("Test item 5", "123", "ba", "3.25", "2.75");
-        addItem("Test item 6", "123", "ba", "7.12", "2.75");
-        addItem("Test item 7", "123", "ba", "9.35", "2.75");
-        addItem("Test item 8", "123", "ba", "25.15", "2.75");
-        addItem("Test item 9", "123", "ba", "30.00", "2.75");
-        addItem("Test item 10", "123", "ba", "1.00", "2.75");
+        addItem("Test item 1", "123", "ba", "1.55", "2.75", "Admin");
+        addItem("Test item 2", "123", "ba", "11.15", "2.75", "Admin");
+        addItem("Test item 3", "123", "ba", "25.00", "2.75", "Admin");
+        addItem("Test item 4", "123", "ba", "5.00", "2.75", "Admin");
+        addItem("Test item 5", "123", "ba", "3.25", "2.75", "Admin");
+        addItem("Test item 6", "123", "ba", "7.12", "2.75", "Admin");
+        addItem("Test item 7", "123", "ba", "9.35", "2.75", "Admin");
+        addItem("Test item 8", "123", "ba", "25.15", "2.75", "Admin");
+        addItem("Test item 9", "123", "ba", "30.00", "2.75", "Admin");
+        addItem("Test item 10", "123", "ba", "1.00", "2.75", "Admin");
 
         Admin c = new Admin("Admin", new Date(), "pass");
         SaltyPassword sp = new SaltyPassword();
@@ -101,6 +101,27 @@ public class Data implements IData {
             return null;
         }
         Controller.getController().updateAuctions((List<Item>) items);
+        return (List<Item>) items;
+    }
+    
+    @Override
+    public List<Item> getMyQueue(String ownerName) {
+        EntityManager em_temp = this.em.createEntityManager();
+
+        Object items = null;
+
+        try {
+            items = em_temp.createQuery(
+                    "SELECT i FROM Item i WHERE ownerName = :ownerName AND active = true")
+                    .setParameter("ownerName", ownerName)
+                    .getResultList();
+            em_temp.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        if (items == null) {
+            return null;
+        }
         return (List<Item>) items;
     }
 
@@ -322,7 +343,7 @@ public class Data implements IData {
     }
 
     @Override
-    public void addItem(String name, String description, String imagepath, String startingprice, String mininumprice) {
+    public void addItem(String name, String description, String imagepath, String startingprice, String mininumprice, String username) {
         Item item = new Item();
         item.setName(name);
         item.setDescription(description);
@@ -331,6 +352,7 @@ public class Data implements IData {
         item.setCurrentBid(Double.parseDouble(startingprice));
         item.setRemainingTime(7);
         item.setActive(true);
+        item.setOwnerName(username);
 
         persist(item);
 

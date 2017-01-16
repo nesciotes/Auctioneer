@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="minimumPrice" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="ownerName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="paid" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="remainingTime" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="startingPrice" type="{http://www.w3.org/2001/XMLSchema}double"/>
@@ -39,6 +40,7 @@ import javax.xml.bind.annotation.XmlType;
     "id",
     "minimumPrice",
     "name",
+    "ownerName",
     "paid",
     "remainingTime",
     "startingPrice"
@@ -50,6 +52,7 @@ public class Item {
     protected int id;
     protected double minimumPrice;
     protected String name;
+    protected String ownerName;
     protected boolean paid;
     protected int remainingTime;
     protected double startingPrice;
@@ -148,6 +151,30 @@ public class Item {
      */
     public void setName(String value) {
         this.name = value;
+    }
+
+    /**
+     * Gets the value of the ownerName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    /**
+     * Sets the value of the ownerName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setOwnerName(String value) {
+        this.ownerName = value;
     }
 
     /**
