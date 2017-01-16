@@ -2,8 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -32,7 +31,7 @@
          <image>
             <Image url="@../images/3PG.jpg" />
          </image></ImageView>
-      <Button fx:id="btnWon" layoutX="904.0" layoutY="207.0" minHeight="23.0" mnemonicParsing="false" onAction="#chat" prefHeight="23.0" prefWidth="149.0" style="-fx-background-color: #777; -fx-border-radius: ;" text="My won auctions" textFill="#70cd82">
+      <Button fx:id="btnWon" layoutX="904.0" layoutY="207.0" minHeight="23.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="149.0" style="-fx-background-color: #777; -fx-border-radius: ;" text="My won auctions" textFill="#70cd82">
          <font>
             <Font size="11.0" />
          </font>
@@ -42,32 +41,43 @@
             <Font size="11.0" />
          </font>
       </Button>
-      <Button fx:id="btnHome" layoutX="904.0" layoutY="130.0" minHeight="23.0" mnemonicParsing="false" onAction="#chat" prefHeight="23.0" prefWidth="149.0" style="-fx-background-color: #777; -fx-border-radius: ;" text="Home" textFill="#70cd82">
+      <Button fx:id="btnHome" layoutX="904.0" layoutY="130.0" minHeight="23.0" mnemonicParsing="false" onAction="#home" prefHeight="23.0" prefWidth="149.0" style="-fx-background-color: #777; -fx-border-radius: ;" text="Home" textFill="#70cd82">
          <font>
             <Font size="11.0" />
          </font>
       </Button>
-      <TreeTableView fx:id="ttv" layoutX="98.0" layoutY="180.0" prefHeight="346.0" prefWidth="324.0" style="-fx-background-color: #666;">
-        <columns>
-          <TreeTableColumn prefWidth="193.0" text="Item" />
-          <TreeTableColumn prefWidth="53.0" text="Price" />
-            <TreeTableColumn prefWidth="65.0" text="Paid" />
-        </columns>
-      </TreeTableView>
-      <Label layoutX="98.0" layoutY="139.0" text="My won auctions" textFill="#317544">
+      <Label layoutX="98.0" layoutY="139.0" text="My won auctions" textFill="#4cbc6a">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnPaySelected" layoutX="536.0" layoutY="218.0" minHeight="23.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="163.0" style="-fx-background-color: #777; -fx-border-radius: ;" text="Pay selected" textFill="#70cd82">
+         <font>
+            <Font size="21.0" />
+         </font>    
+      </Button>
+      <Button fx:id="btnPayAll" layoutX="536.0" layoutY="278.0" minHeight="23.0" mnemonicParsing="false" onAction="#payAll" prefHeight="45.0" prefWidth="163.0" style="-fx-background-color: #777; -fx-border-radius: ;" text="Pay all" textFill="#70cd82">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+      <ListView fx:id="ttv" layoutX="104.0" layoutY="218.0" prefHeight="302.0" prefWidth="274.0" style="-fx-background-color: #666;" />
+      <ListView fx:id="ttv1" focusTraversable="false" layoutX="377.0" layoutY="218.0" mouseTransparent="true" prefHeight="302.0" prefWidth="72.0" style="-fx-background-color: #666;" />
+      <ListView fx:id="ttv2" focusTraversable="false" layoutX="449.0" layoutY="218.0" mouseTransparent="true" prefHeight="302.0" prefWidth="72.0" style="-fx-background-color: #666;" />
+      <Label layoutX="98.0" layoutY="177.0" text="Name" textFill="#317544">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Button fx:id="btnPaySelected" layoutX="435.0" layoutY="188.0" minHeight="23.0" mnemonicParsing="false" onAction="#chat" prefHeight="45.0" prefWidth="163.0" style="-fx-background-color: #777; -fx-border-radius: ;" text="Pay selected" textFill="#70cd82">
+      <Label layoutX="378.0" layoutY="177.0" text="Price" textFill="#317544">
          <font>
-            <Font size="21.0" />
+            <Font size="19.0" />
          </font>
-      </Button>
-      <Button fx:id="btnPayAll" layoutX="435.0" layoutY="248.0" minHeight="23.0" mnemonicParsing="false" onAction="#chat" prefHeight="45.0" prefWidth="163.0" style="-fx-background-color: #777; -fx-border-radius: ;" text="Pay all" textFill="#70cd82">
+      </Label>
+      <Label layoutX="450.0" layoutY="177.0" text="Paid" textFill="#317544">
          <font>
-            <Font size="21.0" />
+            <Font size="19.0" />
          </font>
-      </Button>
+      </Label>
    </children>
 </AnchorPane>

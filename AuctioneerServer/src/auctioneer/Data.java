@@ -84,6 +84,121 @@ public class Data implements IData {
     }
 
     @Override
+    public List<Item> getMyAuctions() {
+        EntityManager em_temp = this.em.createEntityManager();
+
+        Object items = null;
+
+        try {
+            items = em_temp.createQuery(
+                    "SELECT i FROM Item i WHERE active = true")
+                    .getResultList();
+            em_temp.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        if (items == null) {
+            return null;
+        }
+        Controller.getController().updateAuctions((List<Item>) items);
+        return (List<Item>) items;
+    }
+
+    @Override
+    public User getAccountInfo(String username) {
+        EntityManager em_temp = this.em.createEntityManager();
+
+        Object acc = null;
+
+        try {
+            acc = em_temp.createQuery(
+                    "SELECT OBJECT(u) FROM User_parent u WHERE u.username = :username")
+                    .setParameter("username", username)
+                    .getSingleResult();
+            em_temp.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return (User) acc;
+    }
+
+    @Override
+    public void itemPaid(Item item, String username) {
+        EntityManager em_temp = em.createEntityManager();
+
+        Object acc = null;
+
+        try {
+            acc = em_temp.createQuery(
+                    "SELECT OBJECT(u) FROM User_parent u WHERE u.username = :username")
+                    .setParameter("username", username)
+                    .getSingleResult();
+            em_temp.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        User user = (User) acc;
+
+        Map<Item, Double> temp_wonItems = user.getWonItems();
+        user.setWonItems(new HashMap<>());
+
+        for (Entry<Item, Double> i : temp_wonItems.entrySet()) {
+            if (!i.getKey().getName().equals(item.getName())) {
+                user.getWonItems().put(i.getKey(), i.getValue());
+            }
+        }
+        item.setPaid(true);
+
+        user.getWonItems().put(item, item.getCurrentBid());
+
+        Item temp_item = item;
+
+        temp_item.setId(item.getId());
+
+        updateItem(temp_item);
+
+        persist(user);
+    }
+    
+    public static void itemWon(Item item, String username) {
+        EntityManager em_temp = em.createEntityManager();
+
+        Object acc = null;
+
+        try {
+            acc = em_temp.createQuery(
+                    "SELECT OBJECT(u) FROM User_parent u WHERE u.username = :username")
+                    .setParameter("username", username)
+                    .getSingleResult();
+            em_temp.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        User user = (User) acc;
+
+
+        user.getWonItems().put(item, item.getCurrentBid());
+        persist(user);
+    }
+
+    public static User getAccountInfoLocal(String username) {
+        EntityManager em_temp = em.createEntityManager();
+
+        Object acc = null;
+
+        try {
+            acc = em_temp.createQuery(
+                    "SELECT OBJECT(u) FROM User_parent u WHERE u.username = :username")
+                    .setParameter("username", username)
+                    .getSingleResult();
+            em_temp.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return (User) acc;
+    }
+
+    @Override
     public User_parent login(String username, String password) {
         EntityManager em_temp = this.em.createEntityManager();
 
@@ -214,7 +329,7 @@ public class Data implements IData {
         item.setMinimumPrice(Double.parseDouble(mininumprice));
         item.setStartingPrice(Double.parseDouble(startingprice));
         item.setCurrentBid(Double.parseDouble(startingprice));
-        item.setRemainingTime(40);
+        item.setRemainingTime(7);
         item.setActive(true);
 
         persist(item);
@@ -225,8 +340,11 @@ public class Data implements IData {
     public static void updateItem(Item item) {
         EntityManager em_temp = em.createEntityManager();
 
+        Item temp_item = item;
+        temp_item.setId(item.getId());
+
         em_temp.getTransaction().begin();
-        em_temp.merge(item);
+        em_temp.merge(temp_item);
         em_temp.getTransaction().commit();
 
         em_temp.close();

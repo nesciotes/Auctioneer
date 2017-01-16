@@ -18,8 +18,10 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="currentBid" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="minimumPrice" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="paid" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="remainingTime" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="startingPrice" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *       &lt;/sequence>
@@ -34,8 +36,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "item", propOrder = {
     "currentBid",
     "description",
+    "id",
     "minimumPrice",
     "name",
+    "paid",
     "remainingTime",
     "startingPrice"
 })
@@ -43,8 +47,10 @@ public class Item {
 
     protected double currentBid;
     protected String description;
+    protected int id;
     protected double minimumPrice;
     protected String name;
+    protected boolean paid;
     protected int remainingTime;
     protected double startingPrice;
 
@@ -89,6 +95,22 @@ public class Item {
     }
 
     /**
+     * Gets the value of the id property.
+     * 
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Sets the value of the id property.
+     * 
+     */
+    public void setId(int value) {
+        this.id = value;
+    }
+
+    /**
      * Gets the value of the minimumPrice property.
      * 
      */
@@ -126,6 +148,22 @@ public class Item {
      */
     public void setName(String value) {
         this.name = value;
+    }
+
+    /**
+     * Gets the value of the paid property.
+     * 
+     */
+    public boolean isPaid() {
+        return paid;
+    }
+
+    /**
+     * Sets the value of the paid property.
+     * 
+     */
+    public void setPaid(boolean value) {
+        this.paid = value;
     }
 
     /**

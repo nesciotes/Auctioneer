@@ -37,5 +37,11 @@ public interface IData {
     boolean placeBid(User_parent user, String amount);
     
     Bid getHighestBidForAuction(int placeInList);
+    
+    List<Item> getMyAuctions();
+    
+    User getAccountInfo(String username);
+    
+    void itemPaid(Item item, String username);
 
 }

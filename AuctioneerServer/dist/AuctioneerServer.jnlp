@@ -2,13 +2,13 @@
 <jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="AuctioneerServer.jnlp">
   <information>
     <title>AuctioneerServer</title>
-    <vendor>frankcoenen</vendor>
+    <vendor>Rico Clark</vendor>
     <description>null</description>
     <offline-allowed/>
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="AuctioneerServer.jar" size="17633" download="eager" />
+    <jar href="AuctioneerServer.jar" size="19151" download="eager" />
     <jar href="lib\antlr-2.7.7.jar" size="433448" download="eager" />
     <jar href="lib\c3p0-0.9.2.1.jar" size="418318" download="eager" />
     <jar href="lib\derby.jar" size="3104883" download="eager" />

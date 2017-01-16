@@ -111,7 +111,7 @@
       </Label>
       <Label fx:id="lblFinished3" layoutX="110.0" layoutY="413.0" maxWidth="260.0" text="..." textFill="#5bb975" visible="false" />
       <Label fx:id="lblFinishedPrice3" layoutX="167.0" layoutY="413.0" maxWidth="260.0" text="..." textFill="#5bb975" visible="false" />
-      <Button fx:id="btnWon" layoutX="904.0" layoutY="207.0" minHeight="23.0" mnemonicParsing="false" onAction="#chat" prefHeight="23.0" prefWidth="149.0" style="-fx-background-color: #777; -fx-border-radius: ;" text="My won auctions" textFill="#70cd82">
+      <Button fx:id="btnWon" layoutX="904.0" layoutY="207.0" minHeight="23.0" mnemonicParsing="false" onAction="#myAuctions" prefHeight="23.0" prefWidth="149.0" style="-fx-background-color: #777; -fx-border-radius: ;" text="My won auctions" textFill="#70cd82">
          <font>
             <Font size="11.0" />
          </font>

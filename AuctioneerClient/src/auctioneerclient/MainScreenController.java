@@ -144,13 +144,12 @@ public class MainScreenController implements Initializable {
     }
 
     protected void tick() {
-            DataService service = new DataService();
-            auctioneer.Data port = (auctioneer.Data) service.getDataPort();
+        DataService service = new DataService();
+        auctioneer.Data port = (auctioneer.Data) service.getDataPort();
 
-            getCurrentAuction(port);
-            getChat(port);
-            getPastAuctions(port);
-
+        getCurrentAuction(port);
+        getChat(port);
+        getPastAuctions(port);
 
     }
 
@@ -233,6 +232,7 @@ public class MainScreenController implements Initializable {
         auctioneer.Data port = (auctioneer.Data) service.getDataPort();
 
         boolean bidSuccess = port.placeBid(Login.user, tbBid.getText());
+        Login.user = port.getAccountInfo(Login.user.getUsername());
 
         if (!bidSuccess) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -279,6 +279,20 @@ public class MainScreenController implements Initializable {
         Login.user = null;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Login2.fxml"));
+        MainScreenController lc = loader.getController();
+        Parent root = loader.load();
+
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) btnLogout.getScene().getWindow();
+
+        stage.setScene(scene);
+
+        stage.show();
+    }
+
+    @FXML
+    private void myAuctions(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MyAuctionsScreen.fxml"));
         MainScreenController lc = loader.getController();
         Parent root = loader.load();
 

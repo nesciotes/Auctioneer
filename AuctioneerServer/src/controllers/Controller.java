@@ -123,14 +123,16 @@ public class Controller {
                     item.addBid(new Bid(amount, item, user));
                     item.setCurrentBid(amount);
                     Data.updateItem(currentAuction);
+                    Data.itemWon(item, user.getUsername());
 
                     return true;
                 }
-            } else if(amount > item.getStartingPrice()) {
+            } else if (amount > item.getStartingPrice()) {
                 item.addBid(new Bid(amount, item, user));
                 item.setCurrentBid(amount);
 
                 Data.updateItem(currentAuction);
+                Data.itemWon(item, user.getUsername());
 
                 return true;
             }
@@ -142,17 +144,20 @@ public class Controller {
      * If timer expired, close auction
      */
     private void closeAuction() {
-        if (this.currentAuction.getBids() != null) {
-            if (this.currentAuction.getBids().size() > 0) {
-                this.currentAuction.getHighestBidder().addItem(currentAuction.getHighestBid());
-                //Data.persist(this.currentAuction.getHighestBidder());
-
-            }
-        }
         this.lastAuction = currentAuction;
 
         currentAuction.setActive(false);
         Data.updateItem(currentAuction);
+
+        if (this.currentAuction.getBids() != null) {
+            if (this.currentAuction.getBids().size() > 0) {
+                User u = this.currentAuction.getHighestBidder();
+                u = Data.getAccountInfoLocal(u.getUsername());
+                u.addItem(currentAuction.getHighestBid());
+                Data.persist(u);
+
+            }
+        }
 
         this.currentAuction = null;
 

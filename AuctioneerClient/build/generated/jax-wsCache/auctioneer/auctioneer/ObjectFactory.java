@@ -24,26 +24,32 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _LoginResponse_QNAME = new QName("http://auctioneer/", "loginResponse");
+    private final static QName _ItemPaidResponse_QNAME = new QName("http://auctioneer/", "itemPaidResponse");
     private final static QName _AddUser_QNAME = new QName("http://auctioneer/", "addUser");
-    private final static QName _GetHighestBidForAuctionResponse_QNAME = new QName("http://auctioneer/", "getHighestBidForAuctionResponse");
     private final static QName _GetPastAuctions_QNAME = new QName("http://auctioneer/", "getPastAuctions");
     private final static QName _AddMessage_QNAME = new QName("http://auctioneer/", "addMessage");
     private final static QName _GetCurrentResponse_QNAME = new QName("http://auctioneer/", "getCurrentResponse");
     private final static QName _Login_QNAME = new QName("http://auctioneer/", "login");
     private final static QName _AddMessageResponse_QNAME = new QName("http://auctioneer/", "addMessageResponse");
     private final static QName _GetHighestBidForAuction_QNAME = new QName("http://auctioneer/", "getHighestBidForAuction");
-    private final static QName _GetChat_QNAME = new QName("http://auctioneer/", "getChat");
+    private final static QName _ItemPaid_QNAME = new QName("http://auctioneer/", "itemPaid");
     private final static QName _AddItem_QNAME = new QName("http://auctioneer/", "addItem");
-    private final static QName _GetAllAuctionsResponse_QNAME = new QName("http://auctioneer/", "getAllAuctionsResponse");
+    private final static QName _GetMyAuctions_QNAME = new QName("http://auctioneer/", "getMyAuctions");
     private final static QName _GetAllAuctions_QNAME = new QName("http://auctioneer/", "getAllAuctions");
     private final static QName _GetChatResponse_QNAME = new QName("http://auctioneer/", "getChatResponse");
-    private final static QName _PlaceBid_QNAME = new QName("http://auctioneer/", "placeBid");
-    private final static QName _GetCurrent_QNAME = new QName("http://auctioneer/", "getCurrent");
     private final static QName _GetPastAuctionsResponse_QNAME = new QName("http://auctioneer/", "getPastAuctionsResponse");
     private final static QName _PlaceBidResponse_QNAME = new QName("http://auctioneer/", "placeBidResponse");
     private final static QName _AddItemResponse_QNAME = new QName("http://auctioneer/", "addItemResponse");
     private final static QName _AddUserResponse_QNAME = new QName("http://auctioneer/", "addUserResponse");
+    private final static QName _GetAccountInfoResponse_QNAME = new QName("http://auctioneer/", "getAccountInfoResponse");
+    private final static QName _LoginResponse_QNAME = new QName("http://auctioneer/", "loginResponse");
+    private final static QName _GetHighestBidForAuctionResponse_QNAME = new QName("http://auctioneer/", "getHighestBidForAuctionResponse");
+    private final static QName _GetMyAuctionsResponse_QNAME = new QName("http://auctioneer/", "getMyAuctionsResponse");
+    private final static QName _GetChat_QNAME = new QName("http://auctioneer/", "getChat");
+    private final static QName _GetAllAuctionsResponse_QNAME = new QName("http://auctioneer/", "getAllAuctionsResponse");
+    private final static QName _GetAccountInfo_QNAME = new QName("http://auctioneer/", "getAccountInfo");
+    private final static QName _PlaceBid_QNAME = new QName("http://auctioneer/", "placeBid");
+    private final static QName _GetCurrent_QNAME = new QName("http://auctioneer/", "getCurrent");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: auctioneer
@@ -69,11 +75,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link LoginResponse }
+     * Create an instance of {@link ItemPaidResponse }
      * 
      */
-    public LoginResponse createLoginResponse() {
-        return new LoginResponse();
+    public ItemPaidResponse createItemPaidResponse() {
+        return new ItemPaidResponse();
     }
 
     /**
@@ -90,14 +96,6 @@ public class ObjectFactory {
      */
     public AddUser createAddUser() {
         return new AddUser();
-    }
-
-    /**
-     * Create an instance of {@link GetHighestBidForAuctionResponse }
-     * 
-     */
-    public GetHighestBidForAuctionResponse createGetHighestBidForAuctionResponse() {
-        return new GetHighestBidForAuctionResponse();
     }
 
     /**
@@ -149,19 +147,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetAllAuctionsResponse }
+     * Create an instance of {@link ItemPaid }
      * 
      */
-    public GetAllAuctionsResponse createGetAllAuctionsResponse() {
-        return new GetAllAuctionsResponse();
+    public ItemPaid createItemPaid() {
+        return new ItemPaid();
     }
 
     /**
-     * Create an instance of {@link GetChat }
+     * Create an instance of {@link GetMyAuctions }
      * 
      */
-    public GetChat createGetChat() {
-        return new GetChat();
+    public GetMyAuctions createGetMyAuctions() {
+        return new GetMyAuctions();
     }
 
     /**
@@ -197,22 +195,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PlaceBid }
-     * 
-     */
-    public PlaceBid createPlaceBid() {
-        return new PlaceBid();
-    }
-
-    /**
-     * Create an instance of {@link GetCurrent }
-     * 
-     */
-    public GetCurrent createGetCurrent() {
-        return new GetCurrent();
-    }
-
-    /**
      * Create an instance of {@link GetPastAuctionsResponse }
      * 
      */
@@ -226,6 +208,78 @@ public class ObjectFactory {
      */
     public AddUserResponse createAddUserResponse() {
         return new AddUserResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetAccountInfoResponse }
+     * 
+     */
+    public GetAccountInfoResponse createGetAccountInfoResponse() {
+        return new GetAccountInfoResponse();
+    }
+
+    /**
+     * Create an instance of {@link LoginResponse }
+     * 
+     */
+    public LoginResponse createLoginResponse() {
+        return new LoginResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetHighestBidForAuctionResponse }
+     * 
+     */
+    public GetHighestBidForAuctionResponse createGetHighestBidForAuctionResponse() {
+        return new GetHighestBidForAuctionResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetMyAuctionsResponse }
+     * 
+     */
+    public GetMyAuctionsResponse createGetMyAuctionsResponse() {
+        return new GetMyAuctionsResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetAllAuctionsResponse }
+     * 
+     */
+    public GetAllAuctionsResponse createGetAllAuctionsResponse() {
+        return new GetAllAuctionsResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetChat }
+     * 
+     */
+    public GetChat createGetChat() {
+        return new GetChat();
+    }
+
+    /**
+     * Create an instance of {@link GetAccountInfo }
+     * 
+     */
+    public GetAccountInfo createGetAccountInfo() {
+        return new GetAccountInfo();
+    }
+
+    /**
+     * Create an instance of {@link PlaceBid }
+     * 
+     */
+    public PlaceBid createPlaceBid() {
+        return new PlaceBid();
+    }
+
+    /**
+     * Create an instance of {@link GetCurrent }
+     * 
+     */
+    public GetCurrent createGetCurrent() {
+        return new GetCurrent();
     }
 
     /**
@@ -261,12 +315,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link LoginResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ItemPaidResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://auctioneer/", name = "loginResponse")
-    public JAXBElement<LoginResponse> createLoginResponse(LoginResponse value) {
-        return new JAXBElement<LoginResponse>(_LoginResponse_QNAME, LoginResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "itemPaidResponse")
+    public JAXBElement<ItemPaidResponse> createItemPaidResponse(ItemPaidResponse value) {
+        return new JAXBElement<ItemPaidResponse>(_ItemPaidResponse_QNAME, ItemPaidResponse.class, null, value);
     }
 
     /**
@@ -276,15 +330,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://auctioneer/", name = "addUser")
     public JAXBElement<AddUser> createAddUser(AddUser value) {
         return new JAXBElement<AddUser>(_AddUser_QNAME, AddUser.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetHighestBidForAuctionResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://auctioneer/", name = "getHighestBidForAuctionResponse")
-    public JAXBElement<GetHighestBidForAuctionResponse> createGetHighestBidForAuctionResponse(GetHighestBidForAuctionResponse value) {
-        return new JAXBElement<GetHighestBidForAuctionResponse>(_GetHighestBidForAuctionResponse_QNAME, GetHighestBidForAuctionResponse.class, null, value);
     }
 
     /**
@@ -342,12 +387,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetChat }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ItemPaid }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://auctioneer/", name = "getChat")
-    public JAXBElement<GetChat> createGetChat(GetChat value) {
-        return new JAXBElement<GetChat>(_GetChat_QNAME, GetChat.class, null, value);
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "itemPaid")
+    public JAXBElement<ItemPaid> createItemPaid(ItemPaid value) {
+        return new JAXBElement<ItemPaid>(_ItemPaid_QNAME, ItemPaid.class, null, value);
     }
 
     /**
@@ -360,12 +405,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllAuctionsResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetMyAuctions }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://auctioneer/", name = "getAllAuctionsResponse")
-    public JAXBElement<GetAllAuctionsResponse> createGetAllAuctionsResponse(GetAllAuctionsResponse value) {
-        return new JAXBElement<GetAllAuctionsResponse>(_GetAllAuctionsResponse_QNAME, GetAllAuctionsResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "getMyAuctions")
+    public JAXBElement<GetMyAuctions> createGetMyAuctions(GetMyAuctions value) {
+        return new JAXBElement<GetMyAuctions>(_GetMyAuctions_QNAME, GetMyAuctions.class, null, value);
     }
 
     /**
@@ -384,24 +429,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://auctioneer/", name = "getChatResponse")
     public JAXBElement<GetChatResponse> createGetChatResponse(GetChatResponse value) {
         return new JAXBElement<GetChatResponse>(_GetChatResponse_QNAME, GetChatResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PlaceBid }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://auctioneer/", name = "placeBid")
-    public JAXBElement<PlaceBid> createPlaceBid(PlaceBid value) {
-        return new JAXBElement<PlaceBid>(_PlaceBid_QNAME, PlaceBid.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetCurrent }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://auctioneer/", name = "getCurrent")
-    public JAXBElement<GetCurrent> createGetCurrent(GetCurrent value) {
-        return new JAXBElement<GetCurrent>(_GetCurrent_QNAME, GetCurrent.class, null, value);
     }
 
     /**
@@ -438,6 +465,87 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://auctioneer/", name = "addUserResponse")
     public JAXBElement<AddUserResponse> createAddUserResponse(AddUserResponse value) {
         return new JAXBElement<AddUserResponse>(_AddUserResponse_QNAME, AddUserResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAccountInfoResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "getAccountInfoResponse")
+    public JAXBElement<GetAccountInfoResponse> createGetAccountInfoResponse(GetAccountInfoResponse value) {
+        return new JAXBElement<GetAccountInfoResponse>(_GetAccountInfoResponse_QNAME, GetAccountInfoResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoginResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "loginResponse")
+    public JAXBElement<LoginResponse> createLoginResponse(LoginResponse value) {
+        return new JAXBElement<LoginResponse>(_LoginResponse_QNAME, LoginResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetHighestBidForAuctionResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "getHighestBidForAuctionResponse")
+    public JAXBElement<GetHighestBidForAuctionResponse> createGetHighestBidForAuctionResponse(GetHighestBidForAuctionResponse value) {
+        return new JAXBElement<GetHighestBidForAuctionResponse>(_GetHighestBidForAuctionResponse_QNAME, GetHighestBidForAuctionResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetMyAuctionsResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "getMyAuctionsResponse")
+    public JAXBElement<GetMyAuctionsResponse> createGetMyAuctionsResponse(GetMyAuctionsResponse value) {
+        return new JAXBElement<GetMyAuctionsResponse>(_GetMyAuctionsResponse_QNAME, GetMyAuctionsResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetChat }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "getChat")
+    public JAXBElement<GetChat> createGetChat(GetChat value) {
+        return new JAXBElement<GetChat>(_GetChat_QNAME, GetChat.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllAuctionsResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "getAllAuctionsResponse")
+    public JAXBElement<GetAllAuctionsResponse> createGetAllAuctionsResponse(GetAllAuctionsResponse value) {
+        return new JAXBElement<GetAllAuctionsResponse>(_GetAllAuctionsResponse_QNAME, GetAllAuctionsResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAccountInfo }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "getAccountInfo")
+    public JAXBElement<GetAccountInfo> createGetAccountInfo(GetAccountInfo value) {
+        return new JAXBElement<GetAccountInfo>(_GetAccountInfo_QNAME, GetAccountInfo.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link PlaceBid }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "placeBid")
+    public JAXBElement<PlaceBid> createPlaceBid(PlaceBid value) {
+        return new JAXBElement<PlaceBid>(_PlaceBid_QNAME, PlaceBid.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetCurrent }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "getCurrent")
+    public JAXBElement<GetCurrent> createGetCurrent(GetCurrent value) {
+        return new JAXBElement<GetCurrent>(_GetCurrent_QNAME, GetCurrent.class, null, value);
     }
 
 }

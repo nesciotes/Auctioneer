@@ -25,6 +25,7 @@ public class Item implements Serializable{
     private int remainingTime;
     private double currentBid;
 
+    private boolean paid;
     private boolean active;
 
     @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.MERGE)
@@ -42,6 +43,7 @@ public class Item implements Serializable{
         this.bids = new ArrayList<>();
         this.active = true;
         this.currentBid = this.startingPrice;
+        this.paid = false;
 
     }
 
@@ -53,12 +55,48 @@ public class Item implements Serializable{
         this.bids = new ArrayList<>();
         this.active = true;
         this.currentBid = this.startingPrice;
+        this.paid = false;
 
     }
+
+    public boolean isPaid() {
+        return paid;
+    }
+
+    public void setPaid(boolean paid) {
+        this.paid = paid;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        Item a = null;
+        
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof Item)) {
+            return false;
+        } 
+        if (obj == this) {
+            return true;
+        }
+
+        return a.getName().equals(this.getName());
+    }
    
+    
 
     public Item() {
         this.bids = new ArrayList<>();
+        this.paid = false;
 
     }
 
@@ -106,7 +144,7 @@ public class Item implements Serializable{
         return this.bids;
     }
 
-    public void setBids(LinkedList bids) {
+    public void setBids(List bids) {
         this.bids = bids;
     }
 
