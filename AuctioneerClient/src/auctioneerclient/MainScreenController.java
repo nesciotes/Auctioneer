@@ -240,6 +240,8 @@ public class MainScreenController implements Initializable {
             alert.setHeaderText("Something went wrong...");
             alert.setContentText("Check if your bid is a valid number (format: 2.65) and that there isn't already a higher bid!");
             alert.show();
+        } else {
+            tbBid.setText("");
         }
     }
 
@@ -249,6 +251,8 @@ public class MainScreenController implements Initializable {
         auctioneer.Data port = (auctioneer.Data) service.getDataPort();
 
         port.addMessage(Login.user.getUsername() + ": " + tbChat.getText());
+        
+        tbChat.setText("");
     }
 
     protected void setPastAuction(boolean visible, Label currentname, Label finished, Label finished2, Label price, ImageView image, auctioneer.Data port, int index, List<auctioneer.Item> pastAuctions) {

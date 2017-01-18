@@ -353,7 +353,7 @@ public class Data implements IData {
             String code = generateKey();
             byte[] encryptedCode = Encryption.encrypt(code, username);
 
-            transaction.setSecureCode(username);
+            transaction.setSecureCode(code);
             
             persist(transaction);
             
@@ -479,8 +479,6 @@ public class Data implements IData {
             key += temp;
         }
         
-       System.out.println(key);
-
         return key;
     }
 }

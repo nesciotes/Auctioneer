@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerClient/src/auctioneerclient/MainScreenAdmin.fxml</file>
             <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerClient/src/auctioneerclient/MyAuctionsScreen.fxml</file>
+            <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerClient/src/controllers/Decryption.java</file>
             <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerClient/src/auctioneerclient/MainScreenAdminController.java</file>
             <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerClient/src/controllers/Bid.java</file>
             <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerClient/src/auctioneerclient/auctioneerClient.java</file>
@@ -12,9 +13,11 @@
             <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerClient/src/META-INF/jax-ws-catalog.xml</file>
             <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerClient/src/auctioneerclient/MainScreenController.java</file>
             <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerClient/src/controllers/Controller.java</file>
+            <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerClient/src/auctioneerclient/ReceiptController.java</file>
             <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerClient/xml-resources/web-service-references/auctioneer/wsdl/localhost_8080/auctioneer.wsdl</file>
             <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerClient/src/controllers/Admin.java</file>
             <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerClient/src/auctioneerclient/MainScreen.fxml</file>
+            <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerClient/src/auctioneerclient/ReceiptScreen.fxml</file>
             <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerClient/src/auctioneerclient/LoginController.java</file>
             <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerClient/src/controllers/Item.java</file>
             <file>file:/C:/Users/NesciO/Documents/GitHub/Auctioneer/AuctioneerClient/src/auctioneerclient/Login2.fxml</file>
