@@ -8,16 +8,24 @@ package auctioneer;
 import controllers.Admin;
 import controllers.Bid;
 import controllers.Controller;
+import controllers.Encryption;
 import controllers.Item;
 import controllers.SaltyPassword;
+import controllers.SecureTransactionInfo;
 import controllers.User;
 import controllers.User_parent;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.crypto.NoSuchPaddingException;
 import javax.jws.WebService;
 import javax.persistence.*;
 
@@ -64,8 +72,8 @@ public class Data implements IData {
 
         Object acc = null;
         boolean create = false;
-        
-        if(username.length() < 1 || password.length() < 1) {
+
+        if (username.length() < 1 || password.length() < 1) {
             return false;
         }
 
@@ -336,6 +344,34 @@ public class Data implements IData {
     }
 
     @Override
+    public byte[] getTransaction(String username, double amount) {
+        try {
+            SecureTransactionInfo transaction = new SecureTransactionInfo();
+            transaction.setAmount(amount);
+            transaction.setUsername(username);
+
+            String code = generateKey();
+            byte[] encryptedCode = Encryption.encrypt(code, username);
+
+            transaction.setSecureCode(username);
+            
+            persist(transaction);
+            
+            return encryptedCode;
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(Data.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchPaddingException ex) {
+            Logger.getLogger(Data.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvalidKeyException ex) {
+            Logger.getLogger(Data.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(Data.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+
+    }
+
+    @Override
     public List<Item> getAllAuctions() {
         EntityManager em_temp = this.em.createEntityManager();
 
@@ -433,5 +469,18 @@ public class Data implements IData {
             return false;
         }
         return Controller.getController().addBid(Controller.getController().getCurrentAuction(), (User) user, amount_tmp);
+    }
+
+    private String generateKey() {
+        String key = "";
+
+        for (int i = 0, j = 8; i < j; i++) {
+            int temp = (int) Math.floor(Math.random() * 10);
+            key += temp;
+        }
+        
+       System.out.println(key);
+
+        return key;
     }
 }

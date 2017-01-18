@@ -176,7 +176,6 @@ public class MyAuctionsController implements Initializable {
         User user = port.getAccountInfo(Login.user.getUsername());
 
         //List<User.WonItems.Entry> wonItems = user.getWonItems().getEntry();
-        
         List<Item> items = port.getMyAuctions(Login.user.getUsername());
 
         double totalAmount = 0;
@@ -192,13 +191,13 @@ public class MyAuctionsController implements Initializable {
             }
         }
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        /*Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Payment required");
         alert.setHeaderText("Please send your payment through bank transfer (€" + totalAmount + ")");
         alert.setContentText("Please send €" + totalAmount + " to IBAN NL07INGB0009003822 with name 'De Hr RMTJ Clark' and we will process your payment as soon as possible.");
         alert.show();
-
-        /*for (User.WonItems.Entry e : wonItems) {
+         */
+ /*for (User.WonItems.Entry e : wonItems) {
             if (!e.getKey().isPaid()) {
                 port.itemPaid(e.getKey(), Login.user.getUsername());
             }
@@ -208,6 +207,22 @@ public class MyAuctionsController implements Initializable {
                 port.itemPaid(e, Login.user.getUsername());
             }
         }
+        if (totalAmount > 0) {
+
+            Login.securePaymentCode = port.getTransaction(Login.user.getUsername(), totalAmount);
+            Login.securePaymentAmount = totalAmount;
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ReceiptScreen.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+
+            stage.show();
+        }
+
     }
 
 }

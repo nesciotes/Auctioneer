@@ -15,4 +15,9 @@ import controllers.User_parent;
  */
 public class Login {
     public static UserParent user;
+    
+    
+    public static byte[] securePaymentCode;
+    public static double securePaymentAmount;
+    
 }

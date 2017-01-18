@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="710.0" prefWidth="679.0" style="-fx-background-color: #444; -fx-border-color: #ddd;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="auctioneerclient.ReceiptController">
+    <children>
+      <ImageView fx:id="ivCurrent" fitHeight="138.0" fitWidth="149.0" layoutX="297.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/3PG.jpg" />
+         </image></ImageView>
+      <Button fx:id="btnWon1" layoutX="486.0" layoutY="625.0" minHeight="23.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="155.0" style="-fx-background-color: #777; -fx-border-radius: ;" text="Print out receipt" textFill="#70cd82">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Pane layoutX="24.0" layoutY="24.0" prefHeight="658.0" prefWidth="452.0" style="-fx-background-color: #FFF; -fx-border-color: #222; -fx-border-width: 3; -fx-border-radius: 5;">
+         <children>
+            <Label layoutX="15.0" layoutY="125.0" text="Hi there," />
+            <Label fx:id="lblUsername" layoutX="70.0" layoutY="125.0" text="{username}" />
+            <Label layoutX="15.0" layoutY="175.0" text="We have recently recieved a request from you to process a payment." />
+            <Label layoutX="15.0" layoutY="192.0" text="To set the payment process in action, please make a bank transfer within the " />
+            <Label layoutX="15.0" layoutY="209.0" text="next 10 days. Once we have recieved your payment you will recieve your" />
+            <Label layoutX="15.0" layoutY="226.0" text="product(s) shortly. This receipt is also your proof of purchase, keep it in a safe" />
+            <Line endX="320.0" endY="50.0" layoutX="116.0" layoutY="256.0" startX="-100.0" startY="50.0" />
+            <Line endX="320.0" endY="100.0" layoutX="116.0" layoutY="266.0" startX="-100.0" startY="100.0" />
+            <Label layoutX="15.0" layoutY="278.0" text="Amount" />
+            <Label layoutX="81.0" layoutY="278.0" text="Auction(s) won by" />
+            <Label layoutX="334.0" layoutY="278.0" text="Date" />
+            <Label fx:id="lblAmount" layoutX="15.0" layoutY="326.0" text="Amount" />
+            <Label fx:id="lblUsername2" layoutX="81.0" layoutY="326.0" text="Auction(s) won by" />
+            <Label fx:id="lblDate" layoutX="334.0" layoutY="326.0" text="Date" />
+            <Label layoutX="15.0" layoutY="400.0" text="Please pay the above mentioned amount within 10 days to the following" />
+            <Label layoutX="15.0" layoutY="435.0" text="NL07 INGB 000 900 3822 under name of De Hr RMTJ Clark" />
+            <Label layoutX="15.0" layoutY="417.0" text="bank account:" />
+            <Label layoutX="120.0" layoutY="540.0" text="Thanks for using Auctioneer!" />
+            <Label layoutX="155.0" layoutY="557.0" text="Rico Clark, Auctioneer CEO" />
+            <Label layoutX="16.0" layoutY="596.0" text="Legal disclaimer: we charge 35% extra on top of payments as processing fee. Not paying within the">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="609.0" text="aforementioned 10 days will get you a fine of €2000 upto €50.000 depending on the height of your debt.">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Label>
+            <Label layoutX="227.0" layoutY="278.0" text="Payment code" />
+            <Label fx:id="lvlCode" layoutX="227.0" layoutY="326.0" text="Payment code" />
+            <Label layoutX="15.0" layoutY="452.0" text="Make sure to mention your payment code in the description." />
+            <ImageView fitHeight="57.0" fitWidth="174.0" layoutX="152.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/1.png" />
+               </image>
+               <effect>
+                  <Shadow blurType="GAUSSIAN" height="0.0" radius="0.0" width="0.0" />
+               </effect>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="243.0" text="place." />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

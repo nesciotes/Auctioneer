@@ -45,5 +45,7 @@ public interface IData {
     void itemPaid(Item item, String username);
     
     List<Item> getMyQueue(String ownerName);
+    
+    byte[] getTransaction(String username, double amount);
 
 }

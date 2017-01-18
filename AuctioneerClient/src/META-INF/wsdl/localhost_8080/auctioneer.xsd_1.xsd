@@ -44,6 +44,10 @@
 
 <xs:element name="getPastAuctionsResponse" type="tns:getPastAuctionsResponse"></xs:element>
 
+<xs:element name="getTransaction" type="tns:getTransaction"></xs:element>
+
+<xs:element name="getTransactionResponse" type="tns:getTransactionResponse"></xs:element>
+
 <xs:element name="itemPaid" type="tns:itemPaid"></xs:element>
 
 <xs:element name="itemPaidResponse" type="tns:itemPaidResponse"></xs:element>
@@ -55,6 +59,19 @@
 <xs:element name="placeBid" type="tns:placeBid"></xs:element>
 
 <xs:element name="placeBidResponse" type="tns:placeBidResponse"></xs:element>
+
+<xs:complexType name="getTransaction">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:double"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTransactionResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:base64Binary" nillable="true" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
 
 <xs:complexType name="getAllAuctions">
 <xs:sequence></xs:sequence>
@@ -147,18 +164,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="getMyQueue">
-<xs:sequence>
-<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="getMyQueueResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:item" minOccurs="0" maxOccurs="unbounded"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="getAccountInfo">
 <xs:sequence>
 <xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
@@ -168,6 +173,18 @@
 <xs:complexType name="getAccountInfoResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:user" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMyQueue">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMyQueueResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:item" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
 </xs:complexType>
 

@@ -25,6 +25,7 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _ItemPaidResponse_QNAME = new QName("http://auctioneer/", "itemPaidResponse");
+    private final static QName _GetTransactionResponse_QNAME = new QName("http://auctioneer/", "getTransactionResponse");
     private final static QName _AddUser_QNAME = new QName("http://auctioneer/", "addUser");
     private final static QName _GetPastAuctions_QNAME = new QName("http://auctioneer/", "getPastAuctions");
     private final static QName _AddMessage_QNAME = new QName("http://auctioneer/", "addMessage");
@@ -41,6 +42,7 @@ public class ObjectFactory {
     private final static QName _GetPastAuctionsResponse_QNAME = new QName("http://auctioneer/", "getPastAuctionsResponse");
     private final static QName _PlaceBidResponse_QNAME = new QName("http://auctioneer/", "placeBidResponse");
     private final static QName _AddItemResponse_QNAME = new QName("http://auctioneer/", "addItemResponse");
+    private final static QName _GetTransaction_QNAME = new QName("http://auctioneer/", "getTransaction");
     private final static QName _AddUserResponse_QNAME = new QName("http://auctioneer/", "addUserResponse");
     private final static QName _GetAccountInfoResponse_QNAME = new QName("http://auctioneer/", "getAccountInfoResponse");
     private final static QName _LoginResponse_QNAME = new QName("http://auctioneer/", "loginResponse");
@@ -52,6 +54,7 @@ public class ObjectFactory {
     private final static QName _GetMyQueue_QNAME = new QName("http://auctioneer/", "getMyQueue");
     private final static QName _PlaceBid_QNAME = new QName("http://auctioneer/", "placeBid");
     private final static QName _GetCurrent_QNAME = new QName("http://auctioneer/", "getCurrent");
+    private final static QName _GetTransactionResponseReturn_QNAME = new QName("", "return");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: auctioneer
@@ -74,6 +77,14 @@ public class ObjectFactory {
      */
     public User.WonItems createUserWonItems() {
         return new User.WonItems();
+    }
+
+    /**
+     * Create an instance of {@link GetTransactionResponse }
+     * 
+     */
+    public GetTransactionResponse createGetTransactionResponse() {
+        return new GetTransactionResponse();
     }
 
     /**
@@ -229,6 +240,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetTransaction }
+     * 
+     */
+    public GetTransaction createGetTransaction() {
+        return new GetTransaction();
+    }
+
+    /**
      * Create an instance of {@link LoginResponse }
      * 
      */
@@ -339,6 +358,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://auctioneer/", name = "itemPaidResponse")
     public JAXBElement<ItemPaidResponse> createItemPaidResponse(ItemPaidResponse value) {
         return new JAXBElement<ItemPaidResponse>(_ItemPaidResponse_QNAME, ItemPaidResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetTransactionResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "getTransactionResponse")
+    public JAXBElement<GetTransactionResponse> createGetTransactionResponse(GetTransactionResponse value) {
+        return new JAXBElement<GetTransactionResponse>(_GetTransactionResponse_QNAME, GetTransactionResponse.class, null, value);
     }
 
     /**
@@ -486,6 +514,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetTransaction }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://auctioneer/", name = "getTransaction")
+    public JAXBElement<GetTransaction> createGetTransaction(GetTransaction value) {
+        return new JAXBElement<GetTransaction>(_GetTransaction_QNAME, GetTransaction.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link AddUserResponse }{@code >}}
      * 
      */
@@ -582,6 +619,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://auctioneer/", name = "getCurrent")
     public JAXBElement<GetCurrent> createGetCurrent(GetCurrent value) {
         return new JAXBElement<GetCurrent>(_GetCurrent_QNAME, GetCurrent.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "", name = "return", scope = GetTransactionResponse.class)
+    public JAXBElement<byte[]> createGetTransactionResponseReturn(byte[] value) {
+        return new JAXBElement<byte[]>(_GetTransactionResponseReturn_QNAME, byte[].class, GetTransactionResponse.class, ((byte[]) value));
     }
 
 }
